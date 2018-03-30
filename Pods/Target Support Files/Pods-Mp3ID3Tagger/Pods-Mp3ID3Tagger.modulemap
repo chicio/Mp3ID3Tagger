@@ -1,0 +1,6 @@
+framework module Pods_Mp3ID3Tagger {
+  umbrella header "Pods-Mp3ID3Tagger-umbrella.h"
+
+  export *
+  module * { export * }
+}

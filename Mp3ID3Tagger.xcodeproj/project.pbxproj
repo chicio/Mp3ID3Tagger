@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */; };
+		45325CC8206E9CFB0088B3E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC7206E9CFB0088B3E6 /* ViewController.swift */; };
+		45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45325CC9206E9CFB0088B3E6 /* Assets.xcassets */; };
+		45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45325CCB206E9CFB0088B3E6 /* Main.storyboard */; };
+		45325CEA206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */; };
+		69457A33E638E5707073418F /* Pods_Mp3ID3Tagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */; };
+		981DC30D4A10AC63AFCFF70C /* Pods_Mp3ID3TaggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45325CEC206E9DEB0088B3E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45325CBA206E9CFB0088B3E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45325CC1206E9CFB0088B3E6;
+			remoteInfo = Mp3ID3Tagger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B3A114CDB47BBB625A91D92 /* Pods-Mp3ID3TaggerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3TaggerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests.release.xcconfig"; sourceTree = "<group>"; };
+		1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3ID3Tagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45325CC2206E9CFB0088B3E6 /* Mp3ID3Tagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3ID3Tagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45325CC7206E9CFB0088B3E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45325CC9206E9CFB0088B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45325CCC206E9CFB0088B3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45325CCE206E9CFB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45325CCF206E9CFB0088B3E6 /* Mp3ID3Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mp3ID3Tagger.entitlements; sourceTree = "<group>"; };
+		45325CD8206E9CFB0088B3E6 /* Mp3ID3TaggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerUITests.swift; sourceTree = "<group>"; };
+		45325CDA206E9CFB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mp3ID3TaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerTests.swift; sourceTree = "<group>"; };
+		45325CEB206E9DEB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3ID3TaggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3TaggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		91D0D23ADD6D3908A86C5234 /* Pods-Mp3ID3Tagger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.release.xcconfig"; sourceTree = "<group>"; };
+		B1FE5913DC3B70DF8FF074CC /* Pods-Mp3ID3Tagger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45325CBF206E9CFB0088B3E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69457A33E638E5707073418F /* Pods_Mp3ID3Tagger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45325CE4206E9DEB0088B3E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				981DC30D4A10AC63AFCFF70C /* Pods_Mp3ID3TaggerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AF165458CBA00BB822DA663 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1FE5913DC3B70DF8FF074CC /* Pods-Mp3ID3Tagger.debug.xcconfig */,
+				91D0D23ADD6D3908A86C5234 /* Pods-Mp3ID3Tagger.release.xcconfig */,
+				64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */,
+				0B3A114CDB47BBB625A91D92 /* Pods-Mp3ID3TaggerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4487A86CD012318E5CE4060C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */,
+				4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45325CB9206E9CFB0088B3E6 = {
+			isa = PBXGroup;
+			children = (
+				45325CC4206E9CFB0088B3E6 /* Mp3ID3Tagger */,
+				45325CD7206E9CFB0088B3E6 /* Mp3ID3TaggerUITests */,
+				45325CE8206E9DEB0088B3E6 /* Mp3ID3TaggerTests */,
+				45325CC3206E9CFB0088B3E6 /* Products */,
+				0AF165458CBA00BB822DA663 /* Pods */,
+				4487A86CD012318E5CE4060C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		45325CC3206E9CFB0088B3E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45325CC2206E9CFB0088B3E6 /* Mp3ID3Tagger.app */,
+				45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45325CC4206E9CFB0088B3E6 /* Mp3ID3Tagger */ = {
+			isa = PBXGroup;
+			children = (
+				45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */,
+				45325CC7206E9CFB0088B3E6 /* ViewController.swift */,
+				45325CC9206E9CFB0088B3E6 /* Assets.xcassets */,
+				45325CCB206E9CFB0088B3E6 /* Main.storyboard */,
+				45325CCE206E9CFB0088B3E6 /* Info.plist */,
+				45325CCF206E9CFB0088B3E6 /* Mp3ID3Tagger.entitlements */,
+			);
+			path = Mp3ID3Tagger;
+			sourceTree = "<group>";
+		};
+		45325CD7206E9CFB0088B3E6 /* Mp3ID3TaggerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				45325CD8206E9CFB0088B3E6 /* Mp3ID3TaggerUITests.swift */,
+				45325CDA206E9CFB0088B3E6 /* Info.plist */,
+			);
+			path = Mp3ID3TaggerUITests;
+			sourceTree = "<group>";
+		};
+		45325CE8206E9DEB0088B3E6 /* Mp3ID3TaggerTests */ = {
+			isa = PBXGroup;
+			children = (
+				45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */,
+				45325CEB206E9DEB0088B3E6 /* Info.plist */,
+			);
+			path = Mp3ID3TaggerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45325CC1206E9CFB0088B3E6 /* Mp3ID3Tagger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45325CDD206E9CFB0088B3E6 /* Build configuration list for PBXNativeTarget "Mp3ID3Tagger" */;
+			buildPhases = (
+				3D4F63317A4C89BFA325DBED /* [CP] Check Pods Manifest.lock */,
+				45325CBE206E9CFB0088B3E6 /* Sources */,
+				45325CBF206E9CFB0088B3E6 /* Frameworks */,
+				45325CC0206E9CFB0088B3E6 /* Resources */,
+				F4125D9DE2D33AD94A1EA322 /* [CP] Embed Pods Frameworks */,
+				AE9A9D76D4714CDCD18ADF4C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mp3ID3Tagger;
+			productName = Mp3ID3Tagger;
+			productReference = 45325CC2206E9CFB0088B3E6 /* Mp3ID3Tagger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45325CE6206E9DEB0088B3E6 /* Mp3ID3TaggerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45325CEE206E9DEB0088B3E6 /* Build configuration list for PBXNativeTarget "Mp3ID3TaggerTests" */;
+			buildPhases = (
+				8D591EC9976EB40B5A729356 /* [CP] Check Pods Manifest.lock */,
+				45325CE3206E9DEB0088B3E6 /* Sources */,
+				45325CE4206E9DEB0088B3E6 /* Frameworks */,
+				45325CE5206E9DEB0088B3E6 /* Resources */,
+				D86D0726AD6C508FAB6D0293 /* [CP] Embed Pods Frameworks */,
+				4ACFD61D85AF8C8DF607EBB1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45325CED206E9DEB0088B3E6 /* PBXTargetDependency */,
+			);
+			name = Mp3ID3TaggerTests;
+			productName = Mp3ID3TaggerTests;
+			productReference = 45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45325CBA206E9CFB0088B3E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Fabrizio Duroni";
+				TargetAttributes = {
+					45325CC1206E9CFB0088B3E6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					45325CE6206E9DEB0088B3E6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45325CC1206E9CFB0088B3E6;
+					};
+				};
+			};
+			buildConfigurationList = 45325CBD206E9CFB0088B3E6 /* Build configuration list for PBXProject "Mp3ID3Tagger" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45325CB9206E9CFB0088B3E6;
+			productRefGroup = 45325CC3206E9CFB0088B3E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45325CC1206E9CFB0088B3E6 /* Mp3ID3Tagger */,
+				45325CE6206E9DEB0088B3E6 /* Mp3ID3TaggerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45325CC0206E9CFB0088B3E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */,
+				45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45325CE5206E9DEB0088B3E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D4F63317A4C89BFA325DBED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mp3ID3Tagger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ACFD61D85AF8C8DF607EBB1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D591EC9976EB40B5A729356 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mp3ID3TaggerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE9A9D76D4714CDCD18ADF4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D86D0726AD6C508FAB6D0293 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ID3TagEditor/ID3TagEditor.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ID3TagEditor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4125D9DE2D33AD94A1EA322 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ID3TagEditor/ID3TagEditor.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ID3TagEditor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45325CBE206E9CFB0088B3E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45325CC8206E9CFB0088B3E6 /* ViewController.swift in Sources */,
+				45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45325CE3206E9DEB0088B3E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45325CEA206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45325CED206E9DEB0088B3E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45325CC1206E9CFB0088B3E6 /* Mp3ID3Tagger */;
+			targetProxy = 45325CEC206E9DEB0088B3E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45325CCB206E9CFB0088B3E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45325CCC206E9CFB0088B3E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45325CDB206E9CFB0088B3E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		45325CDC206E9CFB0088B3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		45325CDE206E9CFB0088B3E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FE5913DC3B70DF8FF074CC /* Pods-Mp3ID3Tagger.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mp3ID3Tagger/Mp3ID3Tagger.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				INFOPLIST_FILE = Mp3ID3Tagger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Mp3ID3Tagger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		45325CDF206E9CFB0088B3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D0D23ADD6D3908A86C5234 /* Pods-Mp3ID3Tagger.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mp3ID3Tagger/Mp3ID3Tagger.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				INFOPLIST_FILE = Mp3ID3Tagger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Mp3ID3Tagger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		45325CEF206E9DEB0088B3E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				INFOPLIST_FILE = Mp3ID3TaggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Mp3ID3TaggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mp3ID3Tagger.app/Contents/MacOS/Mp3ID3Tagger";
+			};
+			name = Debug;
+		};
+		45325CF0206E9DEB0088B3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B3A114CDB47BBB625A91D92 /* Pods-Mp3ID3TaggerTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Y682K92RZU;
+				INFOPLIST_FILE = Mp3ID3TaggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Mp3ID3TaggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mp3ID3Tagger.app/Contents/MacOS/Mp3ID3Tagger";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45325CBD206E9CFB0088B3E6 /* Build configuration list for PBXProject "Mp3ID3Tagger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45325CDB206E9CFB0088B3E6 /* Debug */,
+				45325CDC206E9CFB0088B3E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45325CDD206E9CFB0088B3E6 /* Build configuration list for PBXNativeTarget "Mp3ID3Tagger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45325CDE206E9CFB0088B3E6 /* Debug */,
+				45325CDF206E9CFB0088B3E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45325CEE206E9DEB0088B3E6 /* Build configuration list for PBXNativeTarget "Mp3ID3TaggerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45325CEF206E9DEB0088B3E6 /* Debug */,
+				45325CF0206E9DEB0088B3E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45325CBA206E9CFB0088B3E6 /* Project object */;
+}
