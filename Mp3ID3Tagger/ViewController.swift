@@ -26,47 +26,19 @@ class ViewController: NSViewController {
     @IBOutlet weak var genreDescriptionTextField: NSTextField!
     @IBOutlet weak var updateButton: NSButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.bindViewModel()
+    }
+    
     func bindViewModel() {
-//        let id3TagStartingInput = Observable.combineLatest(
-//            titleTextField.rx.observe(String.self, "stringValue"),
-//            artistTextField.rx.observe(String.self, "stringValue"),
-//            albumTextField.rx.observe(String.self, "stringValue"),
-//            yearTextField.rx.observe(String.self, "stringValue"),
-//            resultSelector: { (title, artist, album, year) -> ID3Tag in
-//                return ID3Tag(version: .version3,
-//                              artist: artist,
-//                              album: album,
-//                              title: title,
-//                              year: year,
-//                              genre: nil,
-//                              attachedPictures: nil,
-//                              trackPosition: nil)
-//        })
-        let id3TagInputWhenChange = Observable.combineLatest(
-            titleTextField.rx.text,
-            artistTextField.rx.text,
-            albumTextField.rx.text,
-            yearTextField.rx.text,
-            resultSelector: { (title, artist, album, year) -> ID3Tag in
-                return ID3Tag(version: .version3,
-                              artist: artist,
-                              album: album,
-                              title: title,
-                              year: year,
-                              genre: nil,
-                              attachedPictures: nil,
-                              trackPosition: nil)
-        })
-//        let id3TagInput = Observable.merge(id3TagStartingInput, id3TagInputWhenChange) //test zip
         viewModel = ViewModel(id3TagEditor: ID3TagEditor(),
-                              pathDriver: pathSubject.asDriver(onErrorJustReturn: ""),
-                              updateDriver: updateButton.rx.tap.asDriver(),
-                              inputDriver: id3TagInputWhenChange)
-        
-        viewModel.title.drive(titleTextField.rx.text).disposed(by: disposeBag)
-        viewModel.artist.drive(artistTextField.rx.text).disposed(by: disposeBag)
-        viewModel.album.drive(albumTextField.rx.text).disposed(by: disposeBag)
-        viewModel.year.drive(yearTextField.rx.text).disposed(by: disposeBag)
+                              path: pathSubject.asObservable(),
+                              updateDriver: updateButton.rx.tap.asDriver())
+        (titleTextField.rx.text <-> viewModel.title).disposed(by: disposeBag)
+        (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
+        (albumTextField.rx.text <-> viewModel.album).disposed(by: disposeBag)
+        (yearTextField.rx.text <-> viewModel.year).disposed(by: disposeBag)
     }
     
     @IBAction func openDocument(_ sender: Any?) {
@@ -79,7 +51,6 @@ class ViewController: NSViewController {
         openPanel.beginSheetModal(for: self.view.window!) { (response) in
             if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
                 if let selectedPath = openPanel.url?.path {
-                    self.bindViewModel()
                     self.pathSubject.onNext(selectedPath)
                 }
             }
@@ -90,26 +61,48 @@ class ViewController: NSViewController {
 
 class ViewModel {
     let disposeBag = DisposeBag()
-    var title: Driver<String?>
-    var artist: Driver<String?>
-    var album: Driver<String?>
-    let year: Driver<String?>
-    let id3TagDriver: Driver<ID3Tag?>
+    let title: Variable<String?>
+    let artist: Variable<String?>
+    let album: Variable<String?>
+    let year: Variable<String?>
+    let version: Variable<ID3Version?>
     
     init(id3TagEditor: ID3TagEditor,
-         pathDriver: Driver<String>,
-         updateDriver: Driver<Void>,
-         inputDriver: Observable<ID3Tag>) {
-        id3TagDriver = pathDriver.map { (path) -> ID3Tag? in
-            return try! id3TagEditor.read(from: path)
+         path: Observable<String>,
+         updateDriver: Driver<Void>) {
+        title = Variable<String?>("")
+        artist = Variable<String?>("")
+        album = Variable<String?>("")
+        year = Variable<String?>("")
+        version = Variable<ID3Version?>(.version2)
+        path.subscribe(onNext: { (path) in
+            let id3Tag = try! id3TagEditor.read(from: path)
+            self.title.value = id3Tag?.title
+            self.artist.value = id3Tag?.artist
+            self.album.value = id3Tag?.album
+            self.year.value = id3Tag?.year
+        }).disposed(by: disposeBag)
+        
+        let input = Observable.combineLatest(
+            title.asObservable(),
+            artist.asObservable(),
+            album.asObservable(),
+            year.asObservable()
+        ) { (title, artist, album, year) -> ID3Tag in
+            return ID3Tag(
+                version: .version3,
+                artist: artist,
+                album: album,
+                title: title,
+                year: year,
+                genre: nil,
+                attachedPictures: nil,
+                trackPosition: nil
+            )
         }
-        title = id3TagDriver.map({ $0?.title }).asDriver()
-        artist = id3TagDriver.map({ $0?.artist }).asDriver()
-        album = id3TagDriver.map({ $0?.album }).asDriver()
-        year = id3TagDriver.map({ $0?.year }).asDriver()
-       
+        
         Observable
-            .combineLatest(updateDriver.asObservable(), inputDriver, pathDriver.asObservable())
+            .combineLatest(updateDriver.asObservable(), input, path)
             .subscribe { event -> Void in
                 try! id3TagEditor.write(tag: event.element!.1, to: event.element!.2)
             }
@@ -117,3 +110,17 @@ class ViewModel {
     }
 }
 
+infix operator <-> : DefaultPrecedence
+
+func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
+    let bindToUIDisposable = variable.asObservable()
+        .bind(to: property)
+    let bindToVariable = property
+        .subscribe(onNext: { n in
+            variable.value = n
+        }, onCompleted:  {
+            bindToUIDisposable.dispose()
+        })
+    
+    return CompositeDisposable(bindToUIDisposable, bindToVariable)
+}
