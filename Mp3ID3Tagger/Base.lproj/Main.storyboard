@@ -549,7 +549,7 @@
                                 </customSpacing>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-XK-hdz">
-                                <rect key="frame" x="348" y="78" width="75" height="17"/>
+                                <rect key="frame" x="348" y="78" width="113" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Genre" id="aGl-eD-S8Z">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -557,21 +557,23 @@
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jtq-DC-Fpn">
-                                <rect key="frame" x="348" y="48" width="76" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="UHb-aZ-Dn7" id="wUp-Nd-R4e">
+                                <rect key="frame" x="348" y="48" width="114" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="xME-wR-8N8" id="wUp-Nd-R4e">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="W5B-a0-xLH">
                                         <items>
-                                            <menuItem title="Item 1" state="on" id="UHb-aZ-Dn7"/>
-                                            <menuItem title="Item 2" id="06N-GI-8UT"/>
-                                            <menuItem title="Item 3" id="SEQ-iT-4Ct"/>
+                                            <menuItem title="-" tag="-1" id="xME-wR-8N8">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Blues" state="on" id="UHb-aZ-Dn7"/>
+                                            <menuItem title="Classic Rock" tag="1" id="06N-GI-8UT"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YcP-Va-zfQ">
-                                <rect key="frame" x="429" y="51" width="598" height="22"/>
+                                <rect key="frame" x="467" y="51" width="560" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="A0p-qY-KSk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -579,7 +581,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UOa-Mt-uJJ">
-                                <rect key="frame" x="427" y="78" width="602" height="17"/>
+                                <rect key="frame" x="465" y="78" width="564" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Genre description" id="Cee-8O-6tF">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -605,15 +607,14 @@
                                 </buttonCell>
                             </button>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5y8-bk-0av">
-                                <rect key="frame" x="347" y="318" width="59" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="2.3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" selectedItem="k3C-lc-hZf" id="sKv-WB-wpR">
+                                <rect key="frame" x="348" y="318" width="57" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="2.3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" tag="3" inset="2" selectedItem="A2P-Ht-uof" id="sKv-WB-wpR">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="Kxx-BI-Tez">
                                         <items>
-                                            <menuItem title="2.3" hidden="YES" id="A2P-Ht-uof"/>
-                                            <menuItem title="Item 2" state="on" id="k3C-lc-hZf"/>
-                                            <menuItem title="Item 3" id="rxs-Hu-CH1"/>
+                                            <menuItem title="2.3" state="on" tag="3" id="A2P-Ht-uof"/>
+                                            <menuItem title="2.2" tag="2" id="k3C-lc-hZf"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>

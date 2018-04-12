@@ -34,11 +34,16 @@ class ViewController: NSViewController {
     func bindViewModel() {
         viewModel = ViewModel(id3TagEditor: ID3TagEditor(),
                               path: pathSubject.asObservable(),
-                              updateDriver: updateButton.rx.tap.asDriver())
+                              updateAction: updateButton.rx.tap.asObservable())
         (titleTextField.rx.text <-> viewModel.title).disposed(by: disposeBag)
         (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
         (albumTextField.rx.text <-> viewModel.album).disposed(by: disposeBag)
         (yearTextField.rx.text <-> viewModel.year).disposed(by: disposeBag)
+        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.version).disposed(by: disposeBag)
+        (trackPositionTextField.rx.text <-> viewModel.trackPosition).disposed(by: disposeBag)
+        (totalTracksTextField.rx.text <-> viewModel.totalTracks).disposed(by: disposeBag)
+        (genrePopUpMenu.rx.selectedItemTag <-> viewModel.genreIdentifier).disposed(by: disposeBag)
+        (genreDescriptionTextField.rx.text <-> viewModel.genreDescription).disposed(by: disposeBag)
     }
     
     @IBAction func openDocument(_ sender: Any?) {
@@ -65,44 +70,92 @@ class ViewModel {
     let artist: Variable<String?>
     let album: Variable<String?>
     let year: Variable<String?>
-    let version: Variable<ID3Version?>
-    
+    let version: Variable<Int?>
+    let trackPosition: Variable<String?>
+    let totalTracks: Variable<String?>
+    let genreIdentifier: Variable<Int?>
+    let genreDescription: Variable<String?>
+
     init(id3TagEditor: ID3TagEditor,
          path: Observable<String>,
-         updateDriver: Driver<Void>) {
-        title = Variable<String?>("")
-        artist = Variable<String?>("")
-        album = Variable<String?>("")
-        year = Variable<String?>("")
-        version = Variable<ID3Version?>(.version2)
+         updateAction: Observable<Void>) {
+        title = Variable<String?>(nil)
+        artist = Variable<String?>(nil)
+        album = Variable<String?>(nil)
+        year = Variable<String?>(nil)
+        version = Variable<Int?>(3)
+        trackPosition = Variable<String?>(nil)
+        totalTracks = Variable<String?>(nil)
+        genreIdentifier = Variable<Int?>(nil)
+        genreDescription = Variable<String?>(nil)
         path.subscribe(onNext: { (path) in
             let id3Tag = try! id3TagEditor.read(from: path)
+            self.version.value = Int(id3Tag!.properties.version.rawValue)
             self.title.value = id3Tag?.title
             self.artist.value = id3Tag?.artist
             self.album.value = id3Tag?.album
             self.year.value = id3Tag?.year
+            if let trackPosition = id3Tag?.trackPosition {
+                self.trackPosition.value = String(trackPosition.position)
+                if let totalTracks = trackPosition.totalTracks {
+                    self.totalTracks.value = String(totalTracks)
+                }
+            }
+            if let genre = id3Tag?.genre {
+                self.genreIdentifier.value = genre.identifier?.rawValue
+                self.genreDescription.value = genre.description
+            }
         }).disposed(by: disposeBag)
+        
+        let validVersion = version.asObservable().map { (versionSelected) -> ID3Version in
+            return ID3Version(rawValue: UInt8(versionSelected ?? 0)) ?? .version3
+        }
+        
+        let trackPositionInSet = Observable.combineLatest(
+            trackPosition.asObservable(),
+            totalTracks.asObservable()
+        ) { (trackPosition, totalTracks) -> TrackPositionInSet? in
+            if let validTrackPositionAsString = trackPosition,
+                let validTrackPosition = Int(validTrackPositionAsString) {
+                return TrackPositionInSet(position: validTrackPosition, totalTracks: Int(totalTracks ?? ""))
+            }
+            return nil
+        }
+        
+        let genre = Observable.combineLatest(
+            genreIdentifier.asObservable(),
+            genreDescription.asObservable()
+        ) { (genreIdentifier, genreDescription) -> Genre? in
+            if let validGenre = genreIdentifier,
+                let validId3Genre = ID3Genre(rawValue: validGenre) {
+                return Genre(genre: validId3Genre, description: genreDescription)
+            }
+            return nil
+        }
         
         let input = Observable.combineLatest(
             title.asObservable(),
             artist.asObservable(),
             album.asObservable(),
-            year.asObservable()
-        ) { (title, artist, album, year) -> ID3Tag in
+            year.asObservable(),
+            validVersion,
+            trackPositionInSet,
+            genre
+        ) { (title, artist, album, year, version, trackPositionInSet, genre) -> ID3Tag in
             return ID3Tag(
-                version: .version3,
+                version: version,
                 artist: artist,
                 album: album,
                 title: title,
                 year: year,
-                genre: nil,
+                genre: genre,
                 attachedPictures: nil,
-                trackPosition: nil
+                trackPosition: trackPositionInSet
             )
         }
         
         Observable
-            .combineLatest(updateDriver.asObservable(), input, path)
+            .combineLatest(updateAction, input, path)
             .subscribe { event -> Void in
                 try! id3TagEditor.write(tag: event.element!.1, to: event.element!.2)
             }
@@ -124,3 +177,21 @@ func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable 
     
     return CompositeDisposable(bindToUIDisposable, bindToVariable)
 }
+
+extension Reactive where Base: NSPopUpButton {
+    public var selectedItemTag: ControlProperty<Int?> {
+        return base.rx.controlProperty(
+            getter: { control in
+                return control.selectedItem?.tag
+            },
+            setter: { control, tag in
+                if let validTag = tag {
+                    control.tag = validTag
+                    control.selectItem(withTag: validTag)
+                }
+            }
+        )
+    }
+}
+
+
