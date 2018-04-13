@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Cocoa
 
 protocol BindableView where Self: NSViewController {
     associatedtype ViewModelType

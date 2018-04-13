@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Mp3ID3TaggerViewController.swift
 //  Mp3ID3Tagger
 //
 //  Created by Fabrizio Duroni on 30.03.18.
@@ -31,13 +31,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
         super.viewDidLoad()
         self.bindViewModel()
         imageSelectionButton.rx.tap.subscribe(onNext: { tap in
-            let openPanel = NSOpenPanel()
-            openPanel.canChooseFiles = true
-            openPanel.allowsMultipleSelection = false
-            openPanel.canChooseDirectories = false
-            openPanel.canCreateDirectories = false
-            openPanel.title = "Select an Image file"
-            openPanel.beginSheetModal(for: self.view.window!) { (response) in
+            self.display(title: "Select an Image file", onComplete: { (openPanel, response) in
                 if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
                     if let selectedUrl = openPanel.url {
                         let image = try! Data(contentsOf: selectedUrl)
@@ -45,9 +39,21 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                         self.imageSelectionButton.image = NSImage(data: image)
                     }
                 }
-                openPanel.close()
-            }
+            })
         }).disposed(by: disposeBag)
+    }
+    
+    func display(title: String, onComplete: @escaping (NSOpenPanel, NSApplication.ModalResponse) -> Void) {
+        let openPanel = NSOpenPanel()
+        openPanel.canChooseFiles = true
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.title = title
+        openPanel.beginSheetModal(for: self.view.window!) { response in
+            onComplete(openPanel, response)
+            openPanel.close()
+        }
     }
     
     func bindViewModel() {
@@ -73,30 +79,19 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             .subscribe(onNext: { (result) in
                 let alert = NSAlert()
                 alert.addButton(withTitle: "Ok")
-                if result == true {
-                    alert.messageText = "Mp3 saved correctly!"
-                } else {
-                    alert.messageText = "Error during save!"
-                }
+                alert.messageText = result ? "Mp3 saved correctly!" : "Error during save!"
                 alert.runModal()
             })
             .disposed(by: disposeBag)
     }
     
     @IBAction func openDocument(_ sender: Any?) {
-        let openPanel = NSOpenPanel()
-        openPanel.canChooseFiles = true
-        openPanel.allowsMultipleSelection = false
-        openPanel.canChooseDirectories = false
-        openPanel.canCreateDirectories = false
-        openPanel.title = "Select an MP3 file"
-        openPanel.beginSheetModal(for: self.view.window!) { (response) in
+        self.display(title: "Select an MP3 file") { (openPanel, response) in
             if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
                 if let selectedPath = openPanel.url?.path {
                     self.pathSubject.onNext(selectedPath)
                 }
             }
-            openPanel.close()
         }
     }
 }
