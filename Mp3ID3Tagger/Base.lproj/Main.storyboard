@@ -601,7 +601,7 @@
                                     <constraint firstAttribute="width" constant="315" id="ZYp-Ur-qZA"/>
                                     <constraint firstAttribute="height" constant="315" id="zss-Ol-60b"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Image" imagePosition="only" alignment="center" borderStyle="border" imageScaling="axesIndependently" inset="2" id="snm-qC-G1B">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Image" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="snm-qC-G1B">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -675,6 +675,7 @@
                         <outlet property="artistTextField" destination="tgm-CL-1Uo" id="1Kc-v6-9y0"/>
                         <outlet property="genreDescriptionTextField" destination="YcP-Va-zfQ" id="EGG-yU-ovD"/>
                         <outlet property="genrePopUpMenu" destination="Jtq-DC-Fpn" id="0bt-Dh-tyQ"/>
+                        <outlet property="imageSelectionButton" destination="rM3-kH-N0D" id="CBg-em-Mnv"/>
                         <outlet property="titleTextField" destination="DIC-4c-LPe" id="458-ur-rYx"/>
                         <outlet property="totalTracksTextField" destination="rIk-0F-Jce" id="z83-OI-SXM"/>
                         <outlet property="trackPositionTextField" destination="TW2-6k-iL8" id="R7z-03-uek"/>

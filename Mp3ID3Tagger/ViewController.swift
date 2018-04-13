@@ -14,6 +14,7 @@ import ID3TagEditor
 class ViewController: NSViewController {
     private let disposeBag: DisposeBag = DisposeBag()
     private let pathSubject: PublishSubject<String> = PublishSubject<String>()
+    private let imageSubject: PublishSubject<Data> = PublishSubject<Data>()
     private var viewModel: ViewModel!
     @IBOutlet weak var versionPopUpbutton: NSPopUpButton!
     @IBOutlet weak var titleTextField: NSTextField!
@@ -24,16 +25,36 @@ class ViewController: NSViewController {
     @IBOutlet weak var totalTracksTextField: NSTextField!
     @IBOutlet weak var genrePopUpMenu: NSPopUpButton!
     @IBOutlet weak var genreDescriptionTextField: NSTextField!
+    @IBOutlet weak var imageSelectionButton: NSButton!
     @IBOutlet weak var updateButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+        imageSelectionButton.rx.tap.subscribe(onNext: { tap in
+            let openPanel = NSOpenPanel()
+            openPanel.canChooseFiles = true
+            openPanel.allowsMultipleSelection = false
+            openPanel.canChooseDirectories = false
+            openPanel.canCreateDirectories = false
+            openPanel.title = "Select an Image file"
+            openPanel.beginSheetModal(for: self.view.window!) { (response) in
+                if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
+                    if let selectedUrl = openPanel.url {
+                        let image = try! Data(contentsOf: selectedUrl)
+                        self.imageSubject.onNext(image)
+                        self.imageSelectionButton.image = NSImage(data: image)
+                    }
+                }
+                openPanel.close()
+            }
+        }).disposed(by: disposeBag)
     }
     
     func bindViewModel() {
         viewModel = ViewModel(id3TagEditor: ID3TagEditor(),
                               path: pathSubject.asObservable(),
+                              image: imageSubject,
                               updateAction: updateButton.rx.tap.asObservable())
         (titleTextField.rx.text <-> viewModel.title).disposed(by: disposeBag)
         (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
@@ -44,6 +65,9 @@ class ViewController: NSViewController {
         (totalTracksTextField.rx.text <-> viewModel.totalTracks).disposed(by: disposeBag)
         (genrePopUpMenu.rx.selectedItemTag <-> viewModel.genreIdentifier).disposed(by: disposeBag)
         (genreDescriptionTextField.rx.text <-> viewModel.genreDescription).disposed(by: disposeBag)
+        imageSubject.subscribe(onNext: { (data) in
+            self.imageSelectionButton.image = NSImage(data: data)
+        }).disposed(by: disposeBag)
     }
     
     @IBAction func openDocument(_ sender: Any?) {
@@ -78,6 +102,7 @@ class ViewModel {
 
     init(id3TagEditor: ID3TagEditor,
          path: Observable<String>,
+         image: PublishSubject<Data>,
          updateAction: Observable<Void>) {
         title = Variable<String?>(nil)
         artist = Variable<String?>(nil)
@@ -104,6 +129,9 @@ class ViewModel {
             if let genre = id3Tag?.genre {
                 self.genreIdentifier.value = genre.identifier?.rawValue
                 self.genreDescription.value = genre.description
+            }
+            if let validAttachedPictures = id3Tag?.attachedPictures {
+                image.onNext(validAttachedPictures[0].art)
             }
         }).disposed(by: disposeBag)
         
@@ -133,6 +161,10 @@ class ViewModel {
             return nil
         }
         
+        let image = image.map({ (imageData) -> AttachedPicture in
+            return AttachedPicture(art: imageData, type: .FrontCover, format: .Png)
+        })
+        
         let input = Observable.combineLatest(
             title.asObservable(),
             artist.asObservable(),
@@ -140,8 +172,9 @@ class ViewModel {
             year.asObservable(),
             validVersion,
             trackPositionInSet,
-            genre
-        ) { (title, artist, album, year, version, trackPositionInSet, genre) -> ID3Tag in
+            genre,
+            image
+        ) { (title, artist, album, year, version, trackPositionInSet, genre, image) -> ID3Tag in
             return ID3Tag(
                 version: version,
                 artist: artist,
@@ -149,7 +182,7 @@ class ViewModel {
                 title: title,
                 year: year,
                 genre: genre,
-                attachedPictures: nil,
+                attachedPictures: [image],
                 trackPosition: trackPositionInSet
             )
         }
@@ -162,6 +195,7 @@ class ViewModel {
             .disposed(by: disposeBag)
     }
 }
+
 
 infix operator <-> : DefaultPrecedence
 
