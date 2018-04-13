@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "45325CC1206E9CFB0088B3E6"
+               BuildableName = "Mp3ID3Tagger.app"
+               BlueprintName = "Mp3ID3Tagger"
+               ReferencedContainer = "container:Mp3ID3Tagger.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "45325CC1206E9CFB0088B3E6"
+            BuildableName = "Mp3ID3Tagger.app"
+            BlueprintName = "Mp3ID3Tagger"
+            ReferencedContainer = "container:Mp3ID3Tagger.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+</Scheme>

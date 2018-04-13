@@ -187,15 +187,14 @@ class ViewModel {
             )
         }
         
-        Observable
-            .combineLatest(updateAction, input, path)
-            .subscribe { event -> Void in
-                try! id3TagEditor.write(tag: event.element!.1, to: event.element!.2)
-            }
+        updateAction
+            .withLatestFrom(Observable.combineLatest(input, path))
+            .subscribe(onNext: { event in
+                try! id3TagEditor.write(tag: event.0, to: event.1)
+            })
             .disposed(by: disposeBag)
     }
 }
-
 
 infix operator <-> : DefaultPrecedence
 
@@ -227,5 +226,6 @@ extension Reactive where Base: NSPopUpButton {
         )
     }
 }
+
 
 
