@@ -11,11 +11,17 @@ import RxSwift
 import RxCocoa
 import ID3TagEditor
 
-class ViewController: NSViewController {
+protocol BindableView where Self: NSViewController {
+    associatedtype ViewModelType
+    var viewModel: ViewModelType! { get set }
+    func bindViewModel()
+}
+
+class ViewController: NSViewController, BindableView {
     private let disposeBag: DisposeBag = DisposeBag()
     private let pathSubject: PublishSubject<String> = PublishSubject<String>()
     private let imageSubject: PublishSubject<Data> = PublishSubject<Data>()
-    private var viewModel: ViewModel!
+    internal var viewModel: Mp3ID3TaggerViewModel!
     @IBOutlet weak var versionPopUpbutton: NSPopUpButton!
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var artistTextField: NSTextField!
@@ -52,10 +58,10 @@ class ViewController: NSViewController {
     }
     
     func bindViewModel() {
-        viewModel = ViewModel(id3TagEditor: ID3TagEditor(),
-                              path: pathSubject.asObservable(),
-                              image: imageSubject,
-                              updateAction: updateButton.rx.tap.asObservable())
+        viewModel = Mp3ID3TaggerViewModel(id3TagEditor: ID3TagEditor(),
+                                          path: pathSubject.asObservable(),
+                                          image: imageSubject,
+                                          updateAction: updateButton.rx.tap.asObservable())
         (titleTextField.rx.text <-> viewModel.title).disposed(by: disposeBag)
         (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
         (albumTextField.rx.text <-> viewModel.album).disposed(by: disposeBag)
@@ -68,6 +74,20 @@ class ViewController: NSViewController {
         imageSubject.subscribe(onNext: { (data) in
             self.imageSelectionButton.image = NSImage(data: data)
         }).disposed(by: disposeBag)
+        viewModel
+            .save
+            .asObservable()
+            .subscribe(onNext: { (result) in
+                let alert = NSAlert()
+                alert.addButton(withTitle: "Ok")
+                if result == true {
+                    alert.messageText = "Mp3 saved correctly!"
+                } else {
+                    alert.messageText = "Error during save!"
+                }
+                alert.runModal()
+            })
+            .disposed(by: disposeBag)
     }
     
     @IBAction func openDocument(_ sender: Any?) {
@@ -89,7 +109,14 @@ class ViewController: NSViewController {
 }
 
 class ViewModel {
-    let disposeBag = DisposeBag()
+    let disposeBag: DisposeBag
+    
+    init() {
+        disposeBag = DisposeBag()
+    }
+}
+
+class Mp3ID3TaggerViewModel: ViewModel {
     let title: Variable<String?>
     let artist: Variable<String?>
     let album: Variable<String?>
@@ -99,6 +126,7 @@ class ViewModel {
     let totalTracks: Variable<String?>
     let genreIdentifier: Variable<Int?>
     let genreDescription: Variable<String?>
+    let save: PublishSubject<Bool>
 
     init(id3TagEditor: ID3TagEditor,
          path: Observable<String>,
@@ -113,7 +141,9 @@ class ViewModel {
         totalTracks = Variable<String?>(nil)
         genreIdentifier = Variable<Int?>(nil)
         genreDescription = Variable<String?>(nil)
-        path.subscribe(onNext: { (path) in
+        save = PublishSubject<Bool>()
+        super.init()
+        path.subscribe(onNext: { [unowned self] path in
             let id3Tag = try! id3TagEditor.read(from: path)
             self.version.value = Int(id3Tag!.properties.version.rawValue)
             self.title.value = id3Tag?.title
@@ -190,7 +220,12 @@ class ViewModel {
         updateAction
             .withLatestFrom(Observable.combineLatest(input, path))
             .subscribe(onNext: { event in
-                try! id3TagEditor.write(tag: event.0, to: event.1)
+                do {
+                    try id3TagEditor.write(tag: event.0, to: event.1)
+                    self.save.onNext(true)
+                } catch {
+                    self.save.onNext(false)
+                }
             })
             .disposed(by: disposeBag)
     }
