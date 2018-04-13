@@ -403,10 +403,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Mp3ID3 Tagger View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Mp3ID3Tagger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="Mp3ID3TaggerViewController" customModule="Mp3ID3Tagger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="1047" height="387"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -558,15 +558,15 @@
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jtq-DC-Fpn">
                                 <rect key="frame" x="348" y="48" width="114" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="xME-wR-8N8" id="wUp-Nd-R4e">
+                                <popUpButtonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="-1" imageScaling="proportionallyDown" inset="2" selectedItem="xME-wR-8N8" id="wUp-Nd-R4e">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="W5B-a0-xLH">
                                         <items>
-                                            <menuItem title="-" tag="-1" id="xME-wR-8N8">
+                                            <menuItem title="-" state="on" tag="-1" id="xME-wR-8N8">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Blues" state="on" id="UHb-aZ-Dn7"/>
+                                            <menuItem title="Blues" id="UHb-aZ-Dn7"/>
                                             <menuItem title="Classic Rock" tag="1" id="06N-GI-8UT"/>
                                         </items>
                                     </menu>

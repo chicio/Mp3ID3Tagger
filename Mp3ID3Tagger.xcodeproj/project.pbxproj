@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */; };
-		45325CC8206E9CFB0088B3E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC7206E9CFB0088B3E6 /* ViewController.swift */; };
 		45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45325CC9206E9CFB0088B3E6 /* Assets.xcassets */; };
 		45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45325CCB206E9CFB0088B3E6 /* Main.storyboard */; };
 		45325CEA206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */; };
+		45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */; };
+		45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */; };
+		45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D720810AD1000DB258 /* ViewModel.swift */; };
+		45F8A5DA20810B05000DB258 /* Mp3ID3TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */; };
+		45F8A5DC20810BB8000DB258 /* BindableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5DB20810BB8000DB258 /* BindableView.swift */; };
+		45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */; };
 		69457A33E638E5707073418F /* Pods_Mp3ID3Tagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */; };
 		981DC30D4A10AC63AFCFF70C /* Pods_Mp3ID3TaggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */; };
 /* End PBXBuildFile section */
@@ -31,7 +36,6 @@
 		1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3ID3Tagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CC2206E9CFB0088B3E6 /* Mp3ID3Tagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3ID3Tagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45325CC7206E9CFB0088B3E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45325CC9206E9CFB0088B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45325CCC206E9CFB0088B3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45325CCE206E9CFB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +45,12 @@
 		45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mp3ID3TaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerTests.swift; sourceTree = "<group>"; };
 		45325CEB206E9DEB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalBinding.swift; sourceTree = "<group>"; };
+		45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpMenu+Rx.swift"; sourceTree = "<group>"; };
+		45F8A5D720810AD1000DB258 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TagViewModel.swift; sourceTree = "<group>"; };
+		45F8A5DB20810BB8000DB258 /* BindableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableView.swift; sourceTree = "<group>"; };
+		45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerViewController.swift; sourceTree = "<group>"; };
 		4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3ID3TaggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3TaggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91D0D23ADD6D3908A86C5234 /* Pods-Mp3ID3Tagger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */,
-				45325CC7206E9CFB0088B3E6 /* ViewController.swift */,
+				45F8A5D0208109C1000DB258 /* View */,
+				45F8A5CF208109C1000DB258 /* ViewModel */,
 				45325CC9206E9CFB0088B3E6 /* Assets.xcassets */,
 				45325CCB206E9CFB0088B3E6 /* Main.storyboard */,
 				45325CCE206E9CFB0088B3E6 /* Info.plist */,
@@ -137,6 +148,26 @@
 				45325CEB206E9DEB0088B3E6 /* Info.plist */,
 			);
 			path = Mp3ID3TaggerTests;
+			sourceTree = "<group>";
+		};
+		45F8A5CF208109C1000DB258 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */,
+				45F8A5D720810AD1000DB258 /* ViewModel.swift */,
+				45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45F8A5D0208109C1000DB258 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				45F8A5DB20810BB8000DB258 /* BindableView.swift */,
+				45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */,
+				45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,7 +398,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45325CC8206E9CFB0088B3E6 /* ViewController.swift in Sources */,
+				45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */,
+				45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */,
+				45F8A5DA20810B05000DB258 /* Mp3ID3TagViewModel.swift in Sources */,
+				45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */,
+				45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */,
+				45F8A5DC20810BB8000DB258 /* BindableView.swift in Sources */,
 				45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
