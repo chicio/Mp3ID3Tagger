@@ -10,7 +10,11 @@
 		45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */; };
 		45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45325CC9206E9CFB0088B3E6 /* Assets.xcassets */; };
 		45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45325CCB206E9CFB0088B3E6 /* Main.storyboard */; };
-		45325CEA206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */; };
+		4577244D208175E1000771AA /* TrackPositionInSetFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577244C208175E1000771AA /* TrackPositionInSetFields.swift */; };
+		4577244F208178DA000771AA /* GenreFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577244E208178DA000771AA /* GenreFields.swift */; };
+		45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */; };
+		45BC928A20810FA500F96932 /* NSOpenPanel+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */; };
+		45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */; };
 		45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */; };
 		45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */; };
 		45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D720810AD1000DB258 /* ViewModel.swift */; };
@@ -40,11 +44,13 @@
 		45325CCC206E9CFB0088B3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45325CCE206E9CFB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45325CCF206E9CFB0088B3E6 /* Mp3ID3Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mp3ID3Tagger.entitlements; sourceTree = "<group>"; };
-		45325CD8206E9CFB0088B3E6 /* Mp3ID3TaggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerUITests.swift; sourceTree = "<group>"; };
-		45325CDA206E9CFB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mp3ID3TaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerTests.swift; sourceTree = "<group>"; };
 		45325CEB206E9DEB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4577244C208175E1000771AA /* TrackPositionInSetFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPositionInSetFields.swift; sourceTree = "<group>"; };
+		4577244E208178DA000771AA /* GenreFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFields.swift; sourceTree = "<group>"; };
+		45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFieldsTest.swift; sourceTree = "<group>"; };
+		45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Display.swift"; sourceTree = "<group>"; };
+		45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPositionInSetFieldsTest.swift; sourceTree = "<group>"; };
 		45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalBinding.swift; sourceTree = "<group>"; };
 		45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpMenu+Rx.swift"; sourceTree = "<group>"; };
 		45F8A5D720810AD1000DB258 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -101,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				45325CC4206E9CFB0088B3E6 /* Mp3ID3Tagger */,
-				45325CD7206E9CFB0088B3E6 /* Mp3ID3TaggerUITests */,
 				45325CE8206E9DEB0088B3E6 /* Mp3ID3TaggerTests */,
 				45325CC3206E9CFB0088B3E6 /* Products */,
 				0AF165458CBA00BB822DA663 /* Pods */,
@@ -132,19 +137,11 @@
 			path = Mp3ID3Tagger;
 			sourceTree = "<group>";
 		};
-		45325CD7206E9CFB0088B3E6 /* Mp3ID3TaggerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				45325CD8206E9CFB0088B3E6 /* Mp3ID3TaggerUITests.swift */,
-				45325CDA206E9CFB0088B3E6 /* Info.plist */,
-			);
-			path = Mp3ID3TaggerUITests;
-			sourceTree = "<group>";
-		};
 		45325CE8206E9DEB0088B3E6 /* Mp3ID3TaggerTests */ = {
 			isa = PBXGroup;
 			children = (
-				45325CE9206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift */,
+				45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */,
+				45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */,
 				45325CEB206E9DEB0088B3E6 /* Info.plist */,
 			);
 			path = Mp3ID3TaggerTests;
@@ -156,6 +153,8 @@
 				45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */,
 				45F8A5D720810AD1000DB258 /* ViewModel.swift */,
 				45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */,
+				4577244C208175E1000771AA /* TrackPositionInSetFields.swift */,
+				4577244E208178DA000771AA /* GenreFields.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,6 +165,7 @@
 				45F8A5DB20810BB8000DB258 /* BindableView.swift */,
 				45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */,
 				45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */,
+				45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +353,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ID3TagEditor/ID3TagEditor.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
@@ -360,6 +361,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ID3TagEditor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
@@ -398,8 +400,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4577244F208178DA000771AA /* GenreFields.swift in Sources */,
+				45BC928A20810FA500F96932 /* NSOpenPanel+Display.swift in Sources */,
 				45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */,
 				45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */,
+				4577244D208175E1000771AA /* TrackPositionInSetFields.swift in Sources */,
 				45F8A5DA20810B05000DB258 /* Mp3ID3TagViewModel.swift in Sources */,
 				45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */,
 				45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */,
@@ -412,7 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45325CEA206E9DEB0088B3E6 /* Mp3ID3TaggerTests.swift in Sources */,
+				45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */,
+				45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
