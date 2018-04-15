@@ -41,7 +41,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
         (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
         (albumTextField.rx.text <-> viewModel.album).disposed(by: disposeBag)
         (yearTextField.rx.text <-> viewModel.year).disposed(by: disposeBag)
-        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.version).disposed(by: disposeBag)
+        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.versionField.version).disposed(by: disposeBag)
         (trackPositionTextField.rx.text <-> viewModel.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
         (totalTracksTextField.rx.text <-> viewModel.trackPositionInSetFields.totalTracks).disposed(by: disposeBag)
         (genrePopUpMenu.rx.selectedItemTag <-> viewModel.genreFields.genreIdentifier).disposed(by: disposeBag)

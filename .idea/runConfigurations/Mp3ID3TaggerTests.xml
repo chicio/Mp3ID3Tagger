@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Mp3ID3TaggerTests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Mp3ID3Tagger" TARGET_NAME="Mp3ID3TaggerTests" CONFIG_NAME="Debug" SCHEME_NAME="Mp3ID3TaggerTests" IS_LOCATION_SIMULATION_ALLOWED="true" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="0">
+    <method />
+  </configuration>
+</component>

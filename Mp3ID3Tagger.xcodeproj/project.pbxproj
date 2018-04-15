@@ -13,6 +13,7 @@
 		4577244D208175E1000771AA /* TrackPositionInSetFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577244C208175E1000771AA /* TrackPositionInSetFields.swift */; };
 		4577244F208178DA000771AA /* GenreFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577244E208178DA000771AA /* GenreFields.swift */; };
 		45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */; };
+		45B4FFCD2082421900ABEDC2 /* VersionFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */; };
 		45BC928A20810FA500F96932 /* NSOpenPanel+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */; };
 		45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */; };
 		45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */; };
@@ -23,6 +24,7 @@
 		45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */; };
 		69457A33E638E5707073418F /* Pods_Mp3ID3Tagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */; };
 		981DC30D4A10AC63AFCFF70C /* Pods_Mp3ID3TaggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */; };
+		C50677079ADF48923434782B /* VersionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067658914C57E13C7ECE00 /* VersionField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		4577244C208175E1000771AA /* TrackPositionInSetFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPositionInSetFields.swift; sourceTree = "<group>"; };
 		4577244E208178DA000771AA /* GenreFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFields.swift; sourceTree = "<group>"; };
 		45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFieldsTest.swift; sourceTree = "<group>"; };
+		45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionFieldTest.swift; sourceTree = "<group>"; };
 		45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Display.swift"; sourceTree = "<group>"; };
 		45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPositionInSetFieldsTest.swift; sourceTree = "<group>"; };
 		45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalBinding.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3TaggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91D0D23ADD6D3908A86C5234 /* Pods-Mp3ID3Tagger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.release.xcconfig"; sourceTree = "<group>"; };
 		B1FE5913DC3B70DF8FF074CC /* Pods-Mp3ID3Tagger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.debug.xcconfig"; sourceTree = "<group>"; };
+		C5067658914C57E13C7ECE00 /* VersionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */,
+				45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */,
 				45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */,
 				45325CEB206E9DEB0088B3E6 /* Info.plist */,
 			);
@@ -155,6 +160,7 @@
 				45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */,
 				4577244C208175E1000771AA /* TrackPositionInSetFields.swift */,
 				4577244E208178DA000771AA /* GenreFields.swift */,
+				C5067658914C57E13C7ECE00 /* VersionField.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */,
 				45F8A5DC20810BB8000DB258 /* BindableView.swift in Sources */,
 				45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */,
+				C50677079ADF48923434782B /* VersionField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B4FFCD2082421900ABEDC2 /* VersionFieldTest.swift in Sources */,
 				45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */,
 				45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */,
 			);

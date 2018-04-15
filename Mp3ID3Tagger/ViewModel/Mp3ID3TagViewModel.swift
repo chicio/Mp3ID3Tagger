@@ -2,7 +2,7 @@
 //  Mp3ID3TagViewModel.swift
 //  Mp3ID3Tagger
 //
-//  Created by Fabrizio Duroni on 13.04.18.
+//  Created by Fabrizio Duroni on 13/04/18.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
     let artist: Variable<String?>
     let album: Variable<String?>
     let year: Variable<String?>
-    let version: Variable<Int?>
+    let versionField: VersionField
     let trackPositionInSetFields: TrackPositionInSetFields
     let genreFields: GenreFields
     let attachedPicture: PublishSubject<Data>
@@ -33,7 +33,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
         artist = Variable<String?>(nil)
         album = Variable<String?>(nil)
         year = Variable<String?>(nil)
-        version = Variable<Int?>(3)
+        self.versionField = VersionField()
         self.trackPositionInSetFields = TrackPositionInSetFields()
         self.genreFields = GenreFields()
         open = PublishSubject<Bool>()
@@ -44,10 +44,6 @@ class Mp3ID3TaggerViewModel: ViewModel {
 
         readMp3Files()
         
-        let validVersion = version.asObservable().map { (versionSelected) -> ID3Version in
-            return ID3Version(rawValue: UInt8(versionSelected ?? 0)) ?? .version3
-        }
-        
         let image = image.map({ (imageData) -> AttachedPicture in
             return AttachedPicture(art: imageData, type: .FrontCover, format: .Png)
         })
@@ -57,7 +53,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
             artist.asObservable(),
             album.asObservable(),
             year.asObservable(),
-            validVersion,
+            self.versionField.validVersion,
             self.trackPositionInSetFields.trackPositionInSet,
             self.genreFields.genre,
             image
@@ -100,7 +96,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
     
     private func readMp3FileFrom(path: String) throws {
         let id3Tag = try id3TagEditor.read(from: path)
-        self.version.value = Int(id3Tag!.properties.version.rawValue)
+        self.versionField.version.value = Int(id3Tag!.properties.version.rawValue)
         self.title.value = id3Tag?.title
         self.artist.value = id3Tag?.artist
         self.album.value = id3Tag?.album
