@@ -24,7 +24,10 @@
 		45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */; };
 		69457A33E638E5707073418F /* Pods_Mp3ID3Tagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */; };
 		981DC30D4A10AC63AFCFF70C /* Pods_Mp3ID3TaggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */; };
+		C506732165A6DDD1211BCCF8 /* StringToID3ImageExtensionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067105A5F4853B33850623 /* StringToID3ImageExtensionAdapter.swift */; };
 		C50677079ADF48923434782B /* VersionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067658914C57E13C7ECE00 /* VersionField.swift */; };
+		C50677EC1C29C839D18A0925 /* StringToID3ImageExtensionAdapterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067AA5DE7C0FE8E7B398B6 /* StringToID3ImageExtensionAdapterTest.swift */; };
+		C50678F6D69C17A962861551 /* ImageWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067B6443DF9990F4C8B117 /* ImageWithType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +67,10 @@
 		64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3TaggerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3TaggerTests/Pods-Mp3ID3TaggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91D0D23ADD6D3908A86C5234 /* Pods-Mp3ID3Tagger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.release.xcconfig"; sourceTree = "<group>"; };
 		B1FE5913DC3B70DF8FF074CC /* Pods-Mp3ID3Tagger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.debug.xcconfig"; sourceTree = "<group>"; };
+		C5067105A5F4853B33850623 /* StringToID3ImageExtensionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToID3ImageExtensionAdapter.swift; sourceTree = "<group>"; };
 		C5067658914C57E13C7ECE00 /* VersionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionField.swift; sourceTree = "<group>"; };
+		C5067AA5DE7C0FE8E7B398B6 /* StringToID3ImageExtensionAdapterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToID3ImageExtensionAdapterTest.swift; sourceTree = "<group>"; };
+		C5067B6443DF9990F4C8B117 /* ImageWithType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWithType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 				45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */,
 				45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */,
 				45325CEB206E9DEB0088B3E6 /* Info.plist */,
+				C5067AA5DE7C0FE8E7B398B6 /* StringToID3ImageExtensionAdapterTest.swift */,
 			);
 			path = Mp3ID3TaggerTests;
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 				4577244C208175E1000771AA /* TrackPositionInSetFields.swift */,
 				4577244E208178DA000771AA /* GenreFields.swift */,
 				C5067658914C57E13C7ECE00 /* VersionField.swift */,
+				C5067B6443DF9990F4C8B117 /* ImageWithType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 				45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */,
 				45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */,
 				45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */,
+				C5067105A5F4853B33850623 /* StringToID3ImageExtensionAdapter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,6 +426,8 @@
 				45F8A5DC20810BB8000DB258 /* BindableView.swift in Sources */,
 				45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */,
 				C50677079ADF48923434782B /* VersionField.swift in Sources */,
+				C50678F6D69C17A962861551 /* ImageWithType.swift in Sources */,
+				C506732165A6DDD1211BCCF8 /* StringToID3ImageExtensionAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +438,7 @@
 				45B4FFCD2082421900ABEDC2 /* VersionFieldTest.swift in Sources */,
 				45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */,
 				45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */,
+				C50677EC1C29C839D18A0925 /* StringToID3ImageExtensionAdapterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

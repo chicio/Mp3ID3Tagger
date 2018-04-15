@@ -19,12 +19,12 @@ class Mp3ID3TaggerViewModel: ViewModel {
     let versionField: VersionField
     let trackPositionInSetFields: TrackPositionInSetFields
     let genreFields: GenreFields
-    let attachedPicture: PublishSubject<Data>
+    let attachedPicture: PublishSubject<ImageWithType>
     let mp3Paths: Observable<String>
     let saveResult: PublishSubject<Bool>
     
     init(id3TagEditor: ID3TagEditor,
-         imageOpenAction: PublishSubject<Data>,
+         imageOpenAction: PublishSubject<ImageWithType>,
          openAction: Observable<String>,
          saveAction: Observable<Void>) {
         self.id3TagEditor = id3TagEditor
@@ -42,8 +42,8 @@ class Mp3ID3TaggerViewModel: ViewModel {
 
         readMp3Files()
         
-        let image = imageOpenAction.map({ (imageData) -> AttachedPicture in
-            return AttachedPicture(art: imageData, type: .FrontCover, format: .Png)
+        let image = imageOpenAction.map({ (imageWithType) -> AttachedPicture in
+            return AttachedPicture(art: imageWithType.data, type: .FrontCover, format: imageWithType.format)
         })
         
         let input = Observable.combineLatest(
@@ -109,7 +109,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
             self.genreFields.genreDescription.value = genre.description
         }
         if let validAttachedPictures = id3Tag?.attachedPictures {
-            attachedPicture.onNext(validAttachedPictures[0].art)
+            attachedPicture.onNext((data: validAttachedPictures[0].art, format: validAttachedPictures[0].format))
         }
     }
 }

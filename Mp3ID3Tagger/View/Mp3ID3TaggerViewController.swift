@@ -2,7 +2,7 @@
 //  Mp3ID3TaggerViewController.swift
 //  Mp3ID3Tagger
 //
-//  Created by Fabrizio Duroni on 30.03.18.
+//  Created by Fabrizio Duroni on 30/03/18.
 //
 
 import Cocoa
@@ -13,8 +13,9 @@ import ID3TagEditor
 class Mp3ID3TaggerViewController: NSViewController, BindableView {
     private let disposeBag: DisposeBag = DisposeBag()
     private let pathSubject: PublishSubject<String> = PublishSubject<String>()
-    private let imageSubject: PublishSubject<Data> = PublishSubject<Data>()
+    private let imageSubject: PublishSubject<ImageWithType> = PublishSubject<ImageWithType>()
     private let saveAction: PublishSubject<Void> = PublishSubject<Void>()
+    private let stringToID3ImageExtensionAdapter = StringToID3ImageExtensionAdapter()
     var viewModel: Mp3ID3TaggerViewModel!
     @IBOutlet weak var versionPopUpbutton: NSPopUpButton!
     @IBOutlet weak var titleTextField: NSTextField!
@@ -51,17 +52,21 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     }
     
     private func bindAttachedPicture() {
-        imageSubject.subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0) }).disposed(by: disposeBag)
+        imageSubject.subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
         imageSelectionButton.rx.tap.subscribe(onNext: { tap in
             NSOpenPanel.display(in: self.view.window!,
-                                fileTypes: ["png", "jpg"],
+                                fileTypes: ["png", "jpg", "jpeg"],
                                 title: "Select an Image file",
                                 onComplete: { (openPanel, response) in
                                     if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                                        if let selectedUrl = openPanel.url {
-                                            let image = try! Data(contentsOf: selectedUrl)
-                                            self.imageSubject.onNext(image)
-                                            self.imageSelectionButton.image = NSImage(data: image)
+                                        if let validUrl = openPanel.url {
+                                            if let image = try? Data(contentsOf: validUrl) {
+                                                let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(
+                                                    format: validUrl.pathExtension
+                                                )
+                                                self.imageSubject.onNext((data: image, format: imageExtension))
+                                                self.imageSelectionButton.image = NSImage(data: image)
+                                            }
                                         }
                                     }
                                 }
@@ -69,7 +74,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
         })
         .disposed(by: disposeBag)
     }
-    
+
     private func bindSaveAction() {
         viewModel.saveResult
             .asObservable()
@@ -87,10 +92,9 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                             fileTypes: ["mp3"],
                             title: "Select an MP3 file",
                             onComplete: { (openPanel, response) in
-                                if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                                    if let selectedPath = openPanel.url?.path {
+                                if response.rawValue == NSApplication.ModalResponse.OK.rawValue,
+                                   let selectedPath = openPanel.url?.path {
                                         self.pathSubject.onNext(selectedPath)
-                                    }
                                 }
                             }
         )
