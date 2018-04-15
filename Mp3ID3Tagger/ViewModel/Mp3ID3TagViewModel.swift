@@ -12,49 +12,42 @@ import RxCocoa
 
 class Mp3ID3TaggerViewModel: ViewModel {
     let id3TagEditor: ID3TagEditor
-    let title: Variable<String?>
-    let artist: Variable<String?>
-    let album: Variable<String?>
-    let year: Variable<String?>
+    let basicSongFields: BasicSongFields
     let versionField: VersionField
     let trackPositionInSetFields: TrackPositionInSetFields
     let genreFields: GenreFields
     let attachedPicture: PublishSubject<ImageWithType>
-    let mp3Paths: Observable<String>
+    let openAction: Observable<String>
     let saveResult: PublishSubject<Bool>
     
     init(id3TagEditor: ID3TagEditor,
-         imageOpenAction: PublishSubject<ImageWithType>,
          openAction: Observable<String>,
          saveAction: Observable<Void>) {
         self.id3TagEditor = id3TagEditor
-        title = Variable<String?>(nil)
-        artist = Variable<String?>(nil)
-        album = Variable<String?>(nil)
-        year = Variable<String?>(nil)
+        self.basicSongFields = BasicSongFields()
         self.versionField = VersionField()
         self.trackPositionInSetFields = TrackPositionInSetFields()
         self.genreFields = GenreFields()
         self.saveResult = PublishSubject<Bool>()
-        mp3Paths = openAction
-        attachedPicture = imageOpenAction
+        self.openAction = openAction
+        self.attachedPicture = PublishSubject<ImageWithType>()
         super.init()
 
         readMp3Files()
         
-        let image = imageOpenAction.map({ (imageWithType) -> AttachedPicture in
+        let validAttachedPicture = self.attachedPicture.map({ (imageWithType) -> AttachedPicture in
             return AttachedPicture(art: imageWithType.data, type: .FrontCover, format: imageWithType.format)
         })
         
         let input = Observable.combineLatest(
-            title.asObservable(),
-            artist.asObservable(),
-            album.asObservable(),
-            year.asObservable(),
+            self.basicSongFields.title.asObservable(),
+            self.basicSongFields.artist.asObservable(),
+            self.basicSongFields.album.asObservable(),
+            self.basicSongFields.year.asObservable(),
             self.versionField.validVersion,
             self.trackPositionInSetFields.trackPositionInSet,
             self.genreFields.genre,
-            image
+            validAttachedPicture
         ) { (title, artist, album, year, version, trackPositionInSet, genre, image) -> ID3Tag in
             return ID3Tag(
                 version: version,
@@ -82,7 +75,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
     }
     
     private func readMp3Files() {
-        mp3Paths.subscribe(onNext: { [unowned self] path in
+        openAction.subscribe(onNext: { [unowned self] path in
             do {
                 try self.readMp3FileFrom(path: path)
             } catch {
@@ -94,10 +87,10 @@ class Mp3ID3TaggerViewModel: ViewModel {
     private func readMp3FileFrom(path: String) throws {
         let id3Tag = try id3TagEditor.read(from: path)
         self.versionField.version.value = Int(id3Tag!.properties.version.rawValue)
-        self.title.value = id3Tag?.title
-        self.artist.value = id3Tag?.artist
-        self.album.value = id3Tag?.album
-        self.year.value = id3Tag?.year
+        self.basicSongFields.title.value = id3Tag?.title
+        self.basicSongFields.artist.value = id3Tag?.artist
+        self.basicSongFields.album.value = id3Tag?.album
+        self.basicSongFields.year.value = id3Tag?.year
         if let trackPosition = id3Tag?.trackPosition {
             self.trackPositionInSetFields.trackPosition.value = String(trackPosition.position)
             if let totalTracks = id3Tag?.trackPosition?.totalTracks {

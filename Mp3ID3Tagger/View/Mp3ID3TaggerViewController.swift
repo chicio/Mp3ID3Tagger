@@ -13,7 +13,6 @@ import ID3TagEditor
 class Mp3ID3TaggerViewController: NSViewController, BindableView {
     private let disposeBag: DisposeBag = DisposeBag()
     private let pathSubject: PublishSubject<String> = PublishSubject<String>()
-    private let imageSubject: PublishSubject<ImageWithType> = PublishSubject<ImageWithType>()
     private let saveAction: PublishSubject<Void> = PublishSubject<Void>()
     private let stringToID3ImageExtensionAdapter = StringToID3ImageExtensionAdapter()
     var viewModel: Mp3ID3TaggerViewModel!
@@ -35,13 +34,12 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     
     func bindViewModel() {
         viewModel = Mp3ID3TaggerViewModel(id3TagEditor: ID3TagEditor(),
-                                          imageOpenAction: imageSubject,
                                           openAction: pathSubject.asObservable(),
                                           saveAction: saveAction.asObserver())
-        (titleTextField.rx.text <-> viewModel.title).disposed(by: disposeBag)
-        (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
-        (albumTextField.rx.text <-> viewModel.album).disposed(by: disposeBag)
-        (yearTextField.rx.text <-> viewModel.year).disposed(by: disposeBag)
+        (titleTextField.rx.text <-> viewModel.basicSongFields.title).disposed(by: disposeBag)
+        (artistTextField.rx.text <-> viewModel.basicSongFields.artist).disposed(by: disposeBag)
+        (albumTextField.rx.text <-> viewModel.basicSongFields.album).disposed(by: disposeBag)
+        (yearTextField.rx.text <-> viewModel.basicSongFields.year).disposed(by: disposeBag)
         (versionPopUpbutton.rx.selectedItemTag <-> viewModel.versionField.version).disposed(by: disposeBag)
         (trackPositionTextField.rx.text <-> viewModel.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
         (totalTracksTextField.rx.text <-> viewModel.trackPositionInSetFields.totalTracks).disposed(by: disposeBag)
@@ -52,7 +50,10 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     }
     
     private func bindAttachedPicture() {
-        imageSubject.subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
+        viewModel
+            .attachedPicture
+            .asObservable()
+            .subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
         imageSelectionButton.rx.tap.subscribe(onNext: { tap in
             NSOpenPanel.display(in: self.view.window!,
                                 fileTypes: ["png", "jpg", "jpeg"],
@@ -64,7 +65,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                                                 let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(
                                                     format: validUrl.pathExtension
                                                 )
-                                                self.imageSubject.onNext((data: image, format: imageExtension))
+                                                self.viewModel.attachedPicture.onNext((data: image, format: imageExtension))
                                                 self.imageSelectionButton.image = NSImage(data: image)
                                             }
                                         }
