@@ -4,5 +4,5 @@ script:
  - set -o pipefail && xcodebuild -workspace Mp3ID3Tagger.xcworkspace -scheme "Mp3ID3TaggerTests" clean test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination "platform=macOS,arch=x86_64" | xcpretty
  - set -o pipefail && xcodebuild -workspace Mp3ID3Tagger.xcworkspace -scheme "Mp3ID3Tagger"  clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -destination "platform=macOS,arch=x86_64" | xcpretty
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -J 'Mp3ID3Tagger'
 
