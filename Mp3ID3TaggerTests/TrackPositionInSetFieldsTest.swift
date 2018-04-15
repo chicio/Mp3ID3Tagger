@@ -31,7 +31,7 @@ class TrackPositionInSetFieldsTests: XCTestCase {
         
         testScheduler.start()
         
-        let result: [TrackPositionInSet?] = observer.events.map({ $0.value.element! })
+        let result: [TrackPositionInSet?] = observer.events.map { $0.value.element! }
         let expectedTrackPosition: [TrackPositionInSet?] = [
             nil,
             TrackPositionInSet(position: 3, totalTracks: nil),

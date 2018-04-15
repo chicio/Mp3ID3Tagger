@@ -2,7 +2,7 @@
 //  GenreFields.swift
 //  Mp3ID3TaggerTests
 //
-//  Created by Fabrizio Duroni on 14.04.18.
+//  Created by Fabrizio Duroni on 14/04/18.
 //
 
 import XCTest
@@ -31,7 +31,7 @@ class GenreFieldsTest: XCTestCase {
         
         testScheduler.start()
         
-        let result: [Genre?] = observer.events.map({ $0.value.element! })
+        let result: [Genre?] = observer.events.map { $0.value.element! }
         let expectedTrackPosition: [Genre?] = [
             nil,
             Genre(genre: ID3Genre(rawValue: 1), description: nil),

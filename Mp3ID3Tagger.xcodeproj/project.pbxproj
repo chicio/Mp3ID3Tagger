@@ -15,6 +15,10 @@
 		45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */; };
 		45B4FFCD2082421900ABEDC2 /* VersionFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */; };
 		45B4FFCF208382FB00ABEDC2 /* BasicSongFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFCE208382FB00ABEDC2 /* BasicSongFields.swift */; };
+		45B4FFD8208388C200ABEDC2 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 45B4FFD6208388C200ABEDC2 /* 1.jpeg */; };
+		45B4FFD9208388C200ABEDC2 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B4FFD7208388C200ABEDC2 /* 2.png */; };
+		45B4FFDC208388F600ABEDC2 /* PathLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4FFDB208388F500ABEDC2 /* PathLoader.swift */; };
+		45B4FFDD20838BDC00ABEDC2 /* AttachedPictureFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50678820A557BBAFDC54E42 /* AttachedPictureFieldTest.swift */; };
 		45BC928A20810FA500F96932 /* NSOpenPanel+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */; };
 		45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */; };
 		45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */; };
@@ -29,6 +33,7 @@
 		C50677079ADF48923434782B /* VersionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067658914C57E13C7ECE00 /* VersionField.swift */; };
 		C50677EC1C29C839D18A0925 /* StringToID3ImageExtensionAdapterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067AA5DE7C0FE8E7B398B6 /* StringToID3ImageExtensionAdapterTest.swift */; };
 		C50678F6D69C17A962861551 /* ImageWithType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5067B6443DF9990F4C8B117 /* ImageWithType.swift */; };
+		C5067FDDD851DF49B651E07E /* AttachedPictureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50679E6D6BD54DA89F16E36 /* AttachedPictureField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,9 @@
 		45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFieldsTest.swift; sourceTree = "<group>"; };
 		45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionFieldTest.swift; sourceTree = "<group>"; };
 		45B4FFCE208382FB00ABEDC2 /* BasicSongFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSongFields.swift; sourceTree = "<group>"; };
+		45B4FFD6208388C200ABEDC2 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		45B4FFD7208388C200ABEDC2 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		45B4FFDB208388F500ABEDC2 /* PathLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathLoader.swift; sourceTree = "<group>"; };
 		45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Display.swift"; sourceTree = "<group>"; };
 		45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPositionInSetFieldsTest.swift; sourceTree = "<group>"; };
 		45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalBinding.swift; sourceTree = "<group>"; };
@@ -71,6 +79,8 @@
 		B1FE5913DC3B70DF8FF074CC /* Pods-Mp3ID3Tagger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mp3ID3Tagger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mp3ID3Tagger/Pods-Mp3ID3Tagger.debug.xcconfig"; sourceTree = "<group>"; };
 		C5067105A5F4853B33850623 /* StringToID3ImageExtensionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToID3ImageExtensionAdapter.swift; sourceTree = "<group>"; };
 		C5067658914C57E13C7ECE00 /* VersionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionField.swift; sourceTree = "<group>"; };
+		C50678820A557BBAFDC54E42 /* AttachedPictureFieldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachedPictureFieldTest.swift; sourceTree = "<group>"; };
+		C50679E6D6BD54DA89F16E36 /* AttachedPictureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachedPictureField.swift; sourceTree = "<group>"; };
 		C5067AA5DE7C0FE8E7B398B6 /* StringToID3ImageExtensionAdapterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToID3ImageExtensionAdapterTest.swift; sourceTree = "<group>"; };
 		C5067B6443DF9990F4C8B117 /* ImageWithType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWithType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,13 +162,25 @@
 		45325CE8206E9DEB0088B3E6 /* Mp3ID3TaggerTests */ = {
 			isa = PBXGroup;
 			children = (
+				45B4FFD02083887B00ABEDC2 /* exampleFiles */,
 				45B4FFC920817A5E00ABEDC2 /* GenreFieldsTest.swift */,
 				45B4FFCC2082421900ABEDC2 /* VersionFieldTest.swift */,
 				45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */,
 				45325CEB206E9DEB0088B3E6 /* Info.plist */,
 				C5067AA5DE7C0FE8E7B398B6 /* StringToID3ImageExtensionAdapterTest.swift */,
+				C50678820A557BBAFDC54E42 /* AttachedPictureFieldTest.swift */,
+				45B4FFDB208388F500ABEDC2 /* PathLoader.swift */,
 			);
 			path = Mp3ID3TaggerTests;
+			sourceTree = "<group>";
+		};
+		45B4FFD02083887B00ABEDC2 /* exampleFiles */ = {
+			isa = PBXGroup;
+			children = (
+				45B4FFD6208388C200ABEDC2 /* 1.jpeg */,
+				45B4FFD7208388C200ABEDC2 /* 2.png */,
+			);
+			path = exampleFiles;
 			sourceTree = "<group>";
 		};
 		45F8A5CF208109C1000DB258 /* ViewModel */ = {
@@ -172,6 +194,7 @@
 				C5067658914C57E13C7ECE00 /* VersionField.swift */,
 				C5067B6443DF9990F4C8B117 /* ImageWithType.swift */,
 				45B4FFCE208382FB00ABEDC2 /* BasicSongFields.swift */,
+				C50679E6D6BD54DA89F16E36 /* AttachedPictureField.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,6 +314,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B4FFD9208388C200ABEDC2 /* 2.png in Resources */,
+				45B4FFD8208388C200ABEDC2 /* 1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +457,7 @@
 				C50678F6D69C17A962861551 /* ImageWithType.swift in Sources */,
 				45B4FFCF208382FB00ABEDC2 /* BasicSongFields.swift in Sources */,
 				C506732165A6DDD1211BCCF8 /* StringToID3ImageExtensionAdapter.swift in Sources */,
+				C5067FDDD851DF49B651E07E /* AttachedPictureField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +469,8 @@
 				45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */,
 				45B4FFCA20817A5E00ABEDC2 /* GenreFieldsTest.swift in Sources */,
 				C50677EC1C29C839D18A0925 /* StringToID3ImageExtensionAdapterTest.swift in Sources */,
+				45B4FFDC208388F600ABEDC2 /* PathLoader.swift in Sources */,
+				45B4FFDD20838BDC00ABEDC2 /* AttachedPictureFieldTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

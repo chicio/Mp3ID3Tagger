@@ -51,8 +51,8 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     
     private func bindAttachedPicture() {
         viewModel
+            .attachedPictureField
             .attachedPicture
-            .asObservable()
             .subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
         imageSelectionButton.rx.tap.subscribe(onNext: { tap in
             NSOpenPanel.display(in: self.view.window!,
@@ -65,7 +65,9 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                                                 let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(
                                                     format: validUrl.pathExtension
                                                 )
-                                                self.viewModel.attachedPicture.onNext((data: image, format: imageExtension))
+                                                self.viewModel.attachedPictureField.attachedPicture.onNext(
+                                                    (data: image, format: imageExtension)
+                                                )
                                                 self.imageSelectionButton.image = NSImage(data: image)
                                             }
                                         }

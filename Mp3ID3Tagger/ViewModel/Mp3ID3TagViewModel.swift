@@ -16,7 +16,7 @@ class Mp3ID3TaggerViewModel: ViewModel {
     let versionField: VersionField
     let trackPositionInSetFields: TrackPositionInSetFields
     let genreFields: GenreFields
-    let attachedPicture: PublishSubject<ImageWithType>
+    let attachedPictureField: AttachedPictureField
     let openAction: Observable<String>
     let saveResult: PublishSubject<Bool>
     
@@ -28,26 +28,22 @@ class Mp3ID3TaggerViewModel: ViewModel {
         self.versionField = VersionField()
         self.trackPositionInSetFields = TrackPositionInSetFields()
         self.genreFields = GenreFields()
+        self.attachedPictureField = AttachedPictureField()
         self.saveResult = PublishSubject<Bool>()
         self.openAction = openAction
-        self.attachedPicture = PublishSubject<ImageWithType>()
         super.init()
 
         readMp3Files()
         
-        let validAttachedPicture = self.attachedPicture.map({ (imageWithType) -> AttachedPicture in
-            return AttachedPicture(art: imageWithType.data, type: .FrontCover, format: imageWithType.format)
-        })
-        
         let input = Observable.combineLatest(
-            self.basicSongFields.title.asObservable(),
-            self.basicSongFields.artist.asObservable(),
-            self.basicSongFields.album.asObservable(),
-            self.basicSongFields.year.asObservable(),
-            self.versionField.validVersion,
-            self.trackPositionInSetFields.trackPositionInSet,
-            self.genreFields.genre,
-            validAttachedPicture
+            basicSongFields.title.asObservable(),
+            basicSongFields.artist.asObservable(),
+            basicSongFields.album.asObservable(),
+            basicSongFields.year.asObservable(),
+            versionField.validVersion,
+            trackPositionInSetFields.trackPositionInSet,
+            genreFields.genre,
+            attachedPictureField.observeAttachPictureCreation()
         ) { (title, artist, album, year, version, trackPositionInSet, genre, image) -> ID3Tag in
             return ID3Tag(
                 version: version,
@@ -102,7 +98,9 @@ class Mp3ID3TaggerViewModel: ViewModel {
             self.genreFields.genreDescription.value = genre.description
         }
         if let validAttachedPictures = id3Tag?.attachedPictures {
-            attachedPicture.onNext((data: validAttachedPictures[0].art, format: validAttachedPictures[0].format))
+            attachedPictureField.attachedPicture.onNext(
+                (data: validAttachedPictures[0].art, format: validAttachedPictures[0].format)
+            )
         }
     }
 }
