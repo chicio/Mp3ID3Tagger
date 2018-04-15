@@ -14,6 +14,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     private let disposeBag: DisposeBag = DisposeBag()
     private let pathSubject: PublishSubject<String> = PublishSubject<String>()
     private let imageSubject: PublishSubject<Data> = PublishSubject<Data>()
+    private let saveAction: PublishSubject<Void> = PublishSubject<Void>()
     var viewModel: Mp3ID3TaggerViewModel!
     @IBOutlet weak var versionPopUpbutton: NSPopUpButton!
     @IBOutlet weak var titleTextField: NSTextField!
@@ -25,18 +26,17 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     @IBOutlet weak var genrePopUpMenu: NSPopUpButton!
     @IBOutlet weak var genreDescriptionTextField: NSTextField!
     @IBOutlet weak var imageSelectionButton: NSButton!
-    @IBOutlet weak var updateButton: NSButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
     }
     
     func bindViewModel() {
-        viewModel = Mp3ID3TaggerViewModel(editor: ID3TagEditor(),
-                                          path: pathSubject.asObservable(),
-                                          image: imageSubject,
-                                          updateAction: updateButton.rx.tap.asObservable())
+        viewModel = Mp3ID3TaggerViewModel(id3TagEditor: ID3TagEditor(),
+                                          imageOpenAction: imageSubject,
+                                          openAction: pathSubject.asObservable(),
+                                          saveAction: saveAction.asObserver())
         (titleTextField.rx.text <-> viewModel.title).disposed(by: disposeBag)
         (artistTextField.rx.text <-> viewModel.artist).disposed(by: disposeBag)
         (albumTextField.rx.text <-> viewModel.album).disposed(by: disposeBag)
@@ -71,7 +71,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     }
     
     private func bindSaveAction() {
-        viewModel.save
+        viewModel.saveResult
             .asObservable()
             .subscribe(onNext: { (result) in
                 let alert = NSAlert()
@@ -94,6 +94,10 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                                 }
                             }
         )
+    }
+    
+    @IBAction func save(_ sender: Any?) {
+        saveAction.onNext(())
     }
 }
 

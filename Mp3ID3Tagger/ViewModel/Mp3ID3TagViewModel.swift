@@ -21,14 +21,13 @@ class Mp3ID3TaggerViewModel: ViewModel {
     let genreFields: GenreFields
     let attachedPicture: PublishSubject<Data>
     let mp3Paths: Observable<String>
-    let open: PublishSubject<Bool>
-    let save: PublishSubject<Bool>
+    let saveResult: PublishSubject<Bool>
     
-    init(editor: ID3TagEditor,
-         path: Observable<String>,
-         image: PublishSubject<Data>,
-         updateAction: Observable<Void>) {
-        self.id3TagEditor = editor
+    init(id3TagEditor: ID3TagEditor,
+         imageOpenAction: PublishSubject<Data>,
+         openAction: Observable<String>,
+         saveAction: Observable<Void>) {
+        self.id3TagEditor = id3TagEditor
         title = Variable<String?>(nil)
         artist = Variable<String?>(nil)
         album = Variable<String?>(nil)
@@ -36,15 +35,14 @@ class Mp3ID3TaggerViewModel: ViewModel {
         self.versionField = VersionField()
         self.trackPositionInSetFields = TrackPositionInSetFields()
         self.genreFields = GenreFields()
-        open = PublishSubject<Bool>()
-        save = PublishSubject<Bool>()
-        mp3Paths = path
-        attachedPicture = image
+        self.saveResult = PublishSubject<Bool>()
+        mp3Paths = openAction
+        attachedPicture = imageOpenAction
         super.init()
 
         readMp3Files()
         
-        let image = image.map({ (imageData) -> AttachedPicture in
+        let image = imageOpenAction.map({ (imageData) -> AttachedPicture in
             return AttachedPicture(art: imageData, type: .FrontCover, format: .Png)
         })
         
@@ -70,14 +68,14 @@ class Mp3ID3TaggerViewModel: ViewModel {
             )
         }
         
-        updateAction
-            .withLatestFrom(Observable.combineLatest(input, path))
+        saveAction
+            .withLatestFrom(Observable.combineLatest(input, openAction))
             .subscribe(onNext: { [unowned self] event in
                 do {
                     try self.id3TagEditor.write(tag: event.0, to: event.1)
-                    self.save.onNext(true)
+                    self.saveResult.onNext(true)
                 } catch {
-                    self.save.onNext(false)
+                    self.saveResult.onNext(false)
                 }
             })
             .disposed(by: disposeBag)
@@ -87,9 +85,8 @@ class Mp3ID3TaggerViewModel: ViewModel {
         mp3Paths.subscribe(onNext: { [unowned self] path in
             do {
                 try self.readMp3FileFrom(path: path)
-                self.open.onNext(true)
             } catch {
-                self.open.onNext(false)
+                print("error open file")
             }
         }).disposed(by: disposeBag)
     }
