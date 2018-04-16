@@ -34,22 +34,22 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     
     func bindViewModel() {
         viewModel = Mp3ID3TaggerViewModel(openAction: pathSubject.asObservable(), saveAction: saveAction.asObservable())
-        (titleTextField.rx.text <-> viewModel.formFields.basicSongFields.title).disposed(by: disposeBag)
-        (artistTextField.rx.text <-> viewModel.formFields.basicSongFields.artist).disposed(by: disposeBag)
-        (albumTextField.rx.text <-> viewModel.formFields.basicSongFields.album).disposed(by: disposeBag)
-        (yearTextField.rx.text <-> viewModel.formFields.basicSongFields.year).disposed(by: disposeBag)
-        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.formFields.versionField.version).disposed(by: disposeBag)
-        (trackPositionTextField.rx.text <-> viewModel.formFields.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
-        (totalTracksTextField.rx.text <-> viewModel.formFields.trackPositionInSetFields.totalTracks).disposed(by: disposeBag)
-        (genrePopUpMenu.rx.selectedItemTag <-> viewModel.formFields.genreFields.genreIdentifier).disposed(by: disposeBag)
-        (genreDescriptionTextField.rx.text <-> viewModel.formFields.genreFields.genreDescription).disposed(by: disposeBag)
-        self.bindAttachedPicture()
+        (titleTextField.rx.text <-> viewModel.form.basicSongFields.title).disposed(by: disposeBag)
+        (artistTextField.rx.text <-> viewModel.form.basicSongFields.artist).disposed(by: disposeBag)
+        (albumTextField.rx.text <-> viewModel.form.basicSongFields.album).disposed(by: disposeBag)
+        (yearTextField.rx.text <-> viewModel.form.basicSongFields.year).disposed(by: disposeBag)
+        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.form.versionField.version).disposed(by: disposeBag)
+        (trackPositionTextField.rx.text <-> viewModel.form.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
+        (totalTracksTextField.rx.text <-> viewModel.form.trackPositionInSetFields.totalTracks).disposed(by: disposeBag)
+        (genrePopUpMenu.rx.selectedItemTag <-> viewModel.form.genreFields.genreIdentifier).disposed(by: disposeBag)
+        (genreDescriptionTextField.rx.text <-> viewModel.form.genreFields.genreDescription).disposed(by: disposeBag)
+        self.bindAttachedPictureField()
         self.bindSaveAction()
     }
     
-    private func bindAttachedPicture() {
+    private func bindAttachedPictureField() {
         viewModel
-            .formFields
+            .form
             .attachedPictureField
             .attachedPicture
             .subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
@@ -65,12 +65,10 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                                                     format: validUrl.pathExtension
                                                 )
                                                 self.viewModel
-                                                    .formFields
+                                                    .form
                                                     .attachedPictureField
                                                     .attachedPicture
-                                                    .onNext(
-                                                    (data: image, format: imageExtension)
-                                                )
+                                                    .onNext((data: image, format: imageExtension))
                                                 self.imageSelectionButton.image = NSImage(data: image)
                                             }
                                         }
