@@ -33,24 +33,23 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     }
     
     func bindViewModel() {
-        viewModel = Mp3ID3TaggerViewModel(id3TagEditor: ID3TagEditor(),
-                                          openAction: pathSubject.asObservable(),
-                                          saveAction: saveAction.asObserver())
-        (titleTextField.rx.text <-> viewModel.basicSongFields.title).disposed(by: disposeBag)
-        (artistTextField.rx.text <-> viewModel.basicSongFields.artist).disposed(by: disposeBag)
-        (albumTextField.rx.text <-> viewModel.basicSongFields.album).disposed(by: disposeBag)
-        (yearTextField.rx.text <-> viewModel.basicSongFields.year).disposed(by: disposeBag)
-        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.versionField.version).disposed(by: disposeBag)
-        (trackPositionTextField.rx.text <-> viewModel.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
-        (totalTracksTextField.rx.text <-> viewModel.trackPositionInSetFields.totalTracks).disposed(by: disposeBag)
-        (genrePopUpMenu.rx.selectedItemTag <-> viewModel.genreFields.genreIdentifier).disposed(by: disposeBag)
-        (genreDescriptionTextField.rx.text <-> viewModel.genreFields.genreDescription).disposed(by: disposeBag)
+        viewModel = Mp3ID3TaggerViewModel(openAction: pathSubject.asObservable(), saveAction: saveAction.asObservable())
+        (titleTextField.rx.text <-> viewModel.formFields.basicSongFields.title).disposed(by: disposeBag)
+        (artistTextField.rx.text <-> viewModel.formFields.basicSongFields.artist).disposed(by: disposeBag)
+        (albumTextField.rx.text <-> viewModel.formFields.basicSongFields.album).disposed(by: disposeBag)
+        (yearTextField.rx.text <-> viewModel.formFields.basicSongFields.year).disposed(by: disposeBag)
+        (versionPopUpbutton.rx.selectedItemTag <-> viewModel.formFields.versionField.version).disposed(by: disposeBag)
+        (trackPositionTextField.rx.text <-> viewModel.formFields.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
+        (totalTracksTextField.rx.text <-> viewModel.formFields.trackPositionInSetFields.totalTracks).disposed(by: disposeBag)
+        (genrePopUpMenu.rx.selectedItemTag <-> viewModel.formFields.genreFields.genreIdentifier).disposed(by: disposeBag)
+        (genreDescriptionTextField.rx.text <-> viewModel.formFields.genreFields.genreDescription).disposed(by: disposeBag)
         self.bindAttachedPicture()
         self.bindSaveAction()
     }
     
     private func bindAttachedPicture() {
         viewModel
+            .formFields
             .attachedPictureField
             .attachedPicture
             .subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
@@ -58,14 +57,18 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             NSOpenPanel.display(in: self.view.window!,
                                 fileTypes: ["png", "jpg", "jpeg"],
                                 title: "Select an Image file",
-                                onComplete: { (openPanel, response) in
+                                onComplete: { [unowned self] (openPanel, response) in
                                     if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
                                         if let validUrl = openPanel.url {
                                             if let image = try? Data(contentsOf: validUrl) {
                                                 let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(
                                                     format: validUrl.pathExtension
                                                 )
-                                                self.viewModel.attachedPictureField.attachedPicture.onNext(
+                                                self.viewModel
+                                                    .formFields
+                                                    .attachedPictureField
+                                                    .attachedPicture
+                                                    .onNext(
                                                     (data: image, format: imageExtension)
                                                 )
                                                 self.imageSelectionButton.image = NSImage(data: image)
