@@ -23,9 +23,17 @@ class TrackPositionInSetFields {
         ) { (trackPosition, totalTracks) -> TrackPositionInSet? in
             if let validTrackPositionAsString = trackPosition,
                 let validTrackPosition = Int(validTrackPositionAsString) {
-                return TrackPositionInSet(position: validTrackPosition, totalTracks: Int(totalTracks ?? ""))
+                return TrackPositionInSet(position: validTrackPosition,
+                                          totalTracks: TrackPositionInSetFields.convertToNumber(totalTracks: totalTracks))
             }
             return nil
         }
+    }
+    
+    private static func convertToNumber(totalTracks: String?) -> Int? {
+        if let validTotalTracks = totalTracks {
+            return Int(validTotalTracks)
+        }
+        return nil
     }
 }
