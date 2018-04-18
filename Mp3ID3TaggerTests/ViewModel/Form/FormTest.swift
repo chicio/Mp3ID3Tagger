@@ -57,15 +57,23 @@ class FormTest: XCTestCase {
                    album: "::an album::",
                    title: "::a title::",
                    year: "::an year::",
-                   genre: nil,
-                   attachedPictures: nil,
-                   trackPosition: nil)
+                   genre: Genre(genre: .ClassicRock, description: "Classic Rock"),
+                   attachedPictures: [AttachedPicture(art: Data(), type: .FrontCover, format: .Jpeg)],
+                   trackPosition: TrackPositionInSet(position: 1, totalTracks: 10))
         ]
-        
-        XCTAssertEqual(result[0].properties.version, expectedResult[0].properties.version)
+
         XCTAssertEqual(result[0].title, expectedResult[0].title)
-        XCTAssertEqual(result[0].album, expectedResult[0].album)
         XCTAssertEqual(result[0].artist, expectedResult[0].artist)
+        XCTAssertEqual(result[0].album, expectedResult[0].album)
+        XCTAssertEqual(result[0].year, expectedResult[0].year)
+        XCTAssertEqual(result[0].properties.version, expectedResult[0].properties.version)
+        XCTAssertEqual(result[0].trackPosition?.position, expectedResult[0].trackPosition?.position)
+        XCTAssertEqual(result[0].trackPosition?.totalTracks, expectedResult[0].trackPosition?.totalTracks)
+        XCTAssertEqual(result[0].genre?.identifier, expectedResult[0].genre?.identifier)
+        XCTAssertEqual(result[0].genre?.description, expectedResult[0].genre?.description)
+        XCTAssertEqual(result[0].attachedPictures?[0].type, expectedResult[0].attachedPictures?[0].type)
+        XCTAssertEqual(result[0].attachedPictures?[0].format, expectedResult[0].attachedPictures?[0].format)
+        XCTAssertEqual(result[0].attachedPictures?[0].art, expectedResult[0].attachedPictures?[0].art)
     }
 }
 

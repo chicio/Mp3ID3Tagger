@@ -12,6 +12,6 @@ class ViewModel {
     let disposeBag: DisposeBag
     
     init() {
-        disposeBag = DisposeBag()
+        self.disposeBag = DisposeBag()
     }
 }
