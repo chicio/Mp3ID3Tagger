@@ -75,5 +75,72 @@ class FormTest: XCTestCase {
         XCTAssertEqual(result[0].attachedPictures?[0].format, expectedResult[0].attachedPictures?[0].format)
         XCTAssertEqual(result[0].attachedPictures?[0].art, expectedResult[0].attachedPictures?[0].art)
     }
+
+    func testFillFields() {
+        let disposeBag = DisposeBag()
+        let testScheduler = TestScheduler(initialClock: 0)
+        let observerVersion = testScheduler.createObserver(Int?.self)
+        let observerArtist = testScheduler.createObserver(String?.self)
+        let observerAlbum = testScheduler.createObserver(String?.self)
+        let observerTitle = testScheduler.createObserver(String?.self)
+        let observerYear = testScheduler.createObserver(String?.self)
+        let observerGenreIdentifier = testScheduler.createObserver(Int?.self)
+        let observerGenreDescription = testScheduler.createObserver(String?.self)
+        let observerAttachedPicture = testScheduler.createObserver(ImageWithType.self)
+        let observerTrackPosition = testScheduler.createObserver(String?.self)
+        let observerTotalTracks = testScheduler.createObserver(String?.self)
+
+        let form = Form()
+
+        testScheduler.scheduleAt(0) {
+            form.versionField.version.asObservable().subscribe(observerVersion).disposed(by: disposeBag)
+            form.basicSongFields.artist.asObservable().subscribe(observerArtist).disposed(by: disposeBag)
+            form.basicSongFields.album.asObservable().subscribe(observerAlbum).disposed(by: disposeBag)
+            form.basicSongFields.title.asObservable().subscribe(observerTitle).disposed(by: disposeBag)
+            form.basicSongFields.year.asObservable().subscribe(observerYear).disposed(by: disposeBag)
+            form.genreFields.genreIdentifier.asObservable().subscribe(observerGenreIdentifier).disposed(by: disposeBag)
+            form.genreFields.genreDescription.asObservable().subscribe(observerGenreDescription).disposed(by: disposeBag)
+            form.attachedPictureField.attachedPicture.subscribe(observerAttachedPicture).disposed(by: disposeBag)
+            form.trackPositionInSetFields.trackPosition.asObservable().subscribe(observerTrackPosition).disposed(by: disposeBag)
+            form.trackPositionInSetFields.totalTracks.asObservable().subscribe(observerTotalTracks).disposed(by: disposeBag)
+            form.fillFields(using: ID3Tag(
+                    version: .version3,
+                    artist: "::an artist::",
+                    album: "::an album::",
+                    title: "::a title::",
+                    year: "::an year::",
+                    genre: Genre(genre: .ClassicRock, description: "Classic Rock"),
+                    attachedPictures: [AttachedPicture(art: Data(), type: .FrontCover, format: .Jpeg)],
+                    trackPosition: TrackPositionInSet(position: 1, totalTracks: 10)
+            ))
+        }
+        
+        testScheduler.start()
+
+        let version = observerVersion.events.map { $0.value.element! }
+        let artist = observerArtist.events.map { $0.value.element! }
+        let album = observerAlbum.events.map { $0.value.element! }
+        let title = observerTitle.events.map { $0.value.element! }
+        let year = observerYear.events.map { $0.value.element! }
+        let genreIdentifier = observerGenreIdentifier.events.map { $0.value.element! }
+        let genreDescription = observerGenreDescription.events.map { $0.value.element! }
+        let attachedPicture = observerAttachedPicture.events.map { $0.value.element! }
+        let trackPosition = observerTrackPosition.events.map { $0.value.element! }
+        let totalTracks = observerTotalTracks.events.map { $0.value.element! }
+
+        XCTAssertEqual(version[0], 3)
+        XCTAssertEqual(version[1], 3)
+        XCTAssertEqual(artist[0], nil)
+        XCTAssertEqual(artist[1], "::an artist::")
+        XCTAssertEqual(album[0], nil)
+        XCTAssertEqual(album[1], "::an album::")
+        XCTAssertEqual(title[0], nil)
+        XCTAssertEqual(title[1], "::a title::")
+        XCTAssertEqual(year[0], nil)
+        XCTAssertEqual(year[1], "::an year::")
+        XCTAssertEqual(genreIdentifier[0], nil)
+        XCTAssertEqual(genreIdentifier[1], 1)
+
+    }
 }
 

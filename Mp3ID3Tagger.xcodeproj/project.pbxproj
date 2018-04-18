@@ -28,6 +28,7 @@
 		45B4FFDF2083947C00ABEDC2 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 45B4FFDE2083947C00ABEDC2 /* LICENSE.md */; };
 		45BC928A20810FA500F96932 /* NSOpenPanel+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */; };
 		45BC928D208163AF00F96932 /* TrackPositionInSetFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */; };
+		45BE74262087F90E004C7995 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45BE74252087F90D004C7995 /* README.md */; };
 		45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */; };
 		45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */; };
 		45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D720810AD1000DB258 /* ViewModel.swift */; };
@@ -79,6 +80,7 @@
 		45B4FFDE2083947C00ABEDC2 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Display.swift"; sourceTree = "<group>"; };
 		45BC928C208163AF00F96932 /* TrackPositionInSetFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPositionInSetFieldsTest.swift; sourceTree = "<group>"; };
+		45BE74252087F90D004C7995 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalBinding.swift; sourceTree = "<group>"; };
 		45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpMenu+Rx.swift"; sourceTree = "<group>"; };
 		45F8A5D720810AD1000DB258 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		45325CB9206E9CFB0088B3E6 = {
 			isa = PBXGroup;
 			children = (
+				45BE74252087F90D004C7995 /* README.md */,
 				45B4FFDE2083947C00ABEDC2 /* LICENSE.md */,
 				45325CC4206E9CFB0088B3E6 /* Mp3ID3Tagger */,
 				45325CE8206E9DEB0088B3E6 /* Mp3ID3TaggerTests */,
@@ -384,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45BE74262087F90E004C7995 /* README.md in Resources */,
 				45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */,
 				45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */,
 			);
@@ -731,6 +735,7 @@
 			baseConfigurationReference = 64DE07CE1DB34EDE17663D93 /* Pods-Mp3ID3TaggerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Y682K92RZU;
@@ -738,6 +743,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Mp3ID3TaggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mp3ID3Tagger.app/Contents/MacOS/Mp3ID3Tagger";
 			};
@@ -748,6 +754,7 @@
 			baseConfigurationReference = 0B3A114CDB47BBB625A91D92 /* Pods-Mp3ID3TaggerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Y682K92RZU;
@@ -755,6 +762,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Mp3ID3TaggerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mp3ID3Tagger.app/Contents/MacOS/Mp3ID3Tagger";
 			};
