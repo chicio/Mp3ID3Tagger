@@ -10,9 +10,9 @@ import RxSwift
 import ID3TagEditor
 
 class ID3TagReader {
-    let id3TagEditor: ID3TagEditor
-    let openAction: Observable<String>
-    let disposeBag: DisposeBag
+    private let id3TagEditor: ID3TagEditor
+    private let openAction: Observable<String>
+    private let disposeBag: DisposeBag
     
     init(id3TagEditor: ID3TagEditor, openAction: Observable<String>) {
         self.id3TagEditor = id3TagEditor
