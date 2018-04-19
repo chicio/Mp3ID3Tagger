@@ -140,7 +140,14 @@ class FormTest: XCTestCase {
         XCTAssertEqual(year[1], "::an year::")
         XCTAssertEqual(genreIdentifier[0], nil)
         XCTAssertEqual(genreIdentifier[1], 1)
-
+        XCTAssertEqual(genreDescription[0], nil)
+        XCTAssertEqual(genreDescription[1], "Classic Rock")
+        XCTAssertEqual(attachedPicture[0].data, Data())
+        XCTAssertEqual(attachedPicture[0].format, .Jpeg)
+        XCTAssertEqual(trackPosition[0], nil)
+        XCTAssertEqual(trackPosition[1], "1")
+        XCTAssertEqual(totalTracks[0], nil)
+        XCTAssertEqual(totalTracks[1], "10")
     }
 }
 
