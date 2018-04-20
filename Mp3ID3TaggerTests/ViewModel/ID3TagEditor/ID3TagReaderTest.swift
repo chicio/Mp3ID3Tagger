@@ -39,10 +39,7 @@ class ID3TagReaderTest: XCTestCase {
         let mockOpenActionObservable = testScheduler.createHotObservable([Recorded.next(2, mp3Path)])
         let expectation = XCTestExpectation(description: "Finish tag read")
 
-        let id3TagReader = ID3TagReader(
-                id3TagEditor: ID3TagEditor(),
-                openAction: mockOpenActionObservable.asObservable()
-        )
+        let id3TagReader = ID3TagReader(id3TagEditor: ID3TagEditor(), openAction: mockOpenActionObservable.asObservable())
         id3TagReader.read { tag in
             XCTAssertNotNil(tag)
             expectation.fulfill()

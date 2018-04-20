@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		450A1FEC2088F8E300CC3E04 /* ID3TagReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A1FEB2088F8E300CC3E04 /* ID3TagReaderTest.swift */; };
 		450A1FEE20893C0700CC3E04 /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 450A1FED20893C0700CC3E04 /* example.mp3 */; };
+		450A1FF020893E0F00CC3E04 /* ID3TagWriterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A1FEF20893E0F00CC3E04 /* ID3TagWriterTest.swift */; };
+		450A1FF32089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A1FF22089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift */; };
 		45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */; };
 		45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45325CC9206E9CFB0088B3E6 /* Assets.xcassets */; };
 		45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45325CCB206E9CFB0088B3E6 /* Main.storyboard */; };
@@ -34,7 +36,7 @@
 		45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */; };
 		45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */; };
 		45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D720810AD1000DB258 /* ViewModel.swift */; };
-		45F8A5DA20810B05000DB258 /* Mp3ID3TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */; };
+		45F8A5DA20810B05000DB258 /* Mp3ID3TaggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5D920810B05000DB258 /* Mp3ID3TaggerViewModel.swift */; };
 		45F8A5DC20810BB8000DB258 /* BindableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5DB20810BB8000DB258 /* BindableView.swift */; };
 		45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */; };
 		69457A33E638E5707073418F /* Pods_Mp3ID3Tagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */; };
@@ -59,6 +61,8 @@
 		1D2D9F2034892369DC318E41 /* Pods_Mp3ID3Tagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3ID3Tagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450A1FEB2088F8E300CC3E04 /* ID3TagReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagReaderTest.swift; sourceTree = "<group>"; };
 		450A1FED20893C0700CC3E04 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
+		450A1FEF20893E0F00CC3E04 /* ID3TagWriterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagWriterTest.swift; sourceTree = "<group>"; };
+		450A1FF22089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerViewModelTest.swift; sourceTree = "<group>"; };
 		45325CC2206E9CFB0088B3E6 /* Mp3ID3Tagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3ID3Tagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45325CC9206E9CFB0088B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +92,7 @@
 		45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalBinding.swift; sourceTree = "<group>"; };
 		45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpMenu+Rx.swift"; sourceTree = "<group>"; };
 		45F8A5D720810AD1000DB258 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TagViewModel.swift; sourceTree = "<group>"; };
+		45F8A5D920810B05000DB258 /* Mp3ID3TaggerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerViewModel.swift; sourceTree = "<group>"; };
 		45F8A5DB20810BB8000DB258 /* BindableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableView.swift; sourceTree = "<group>"; };
 		45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerViewController.swift; sourceTree = "<group>"; };
 		4D3E214546BC868792428781 /* Pods_Mp3ID3TaggerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mp3ID3TaggerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				450A1FEB2088F8E300CC3E04 /* ID3TagReaderTest.swift */,
+				450A1FEF20893E0F00CC3E04 /* ID3TagWriterTest.swift */,
 			);
 			path = ID3TagEditor;
 			sourceTree = "<group>";
@@ -190,7 +195,7 @@
 			children = (
 				458EC1BE2085515F0000B915 /* View */,
 				458EC1BD208551470000B915 /* ViewModel */,
-				45B4FFD02083887B00ABEDC2 /* exampleFiles */,
+				45B4FFD02083887B00ABEDC2 /* ExampleFiles */,
 				45325CEB206E9DEB0088B3E6 /* Info.plist */,
 				45B4FFDB208388F500ABEDC2 /* PathLoader.swift */,
 			);
@@ -241,6 +246,7 @@
 			children = (
 				458EC1BF208551710000B915 /* Form */,
 				450A1FEA2088F8CA00CC3E04 /* ID3TagEditor */,
+				450A1FF22089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -273,14 +279,14 @@
 			path = Fields;
 			sourceTree = "<group>";
 		};
-		45B4FFD02083887B00ABEDC2 /* exampleFiles */ = {
+		45B4FFD02083887B00ABEDC2 /* ExampleFiles */ = {
 			isa = PBXGroup;
 			children = (
 				450A1FED20893C0700CC3E04 /* example.mp3 */,
 				45B4FFD6208388C200ABEDC2 /* 1.jpeg */,
 				45B4FFD7208388C200ABEDC2 /* 2.png */,
 			);
-			path = exampleFiles;
+			path = ExampleFiles;
 			sourceTree = "<group>";
 		};
 		45F8A5CF208109C1000DB258 /* ViewModel */ = {
@@ -290,7 +296,7 @@
 				458EC1A920854E310000B915 /* ID3TagEditor */,
 				45F8A5D320810A25000DB258 /* BidirectionalBinding.swift */,
 				45F8A5D720810AD1000DB258 /* ViewModel.swift */,
-				45F8A5D920810B05000DB258 /* Mp3ID3TagViewModel.swift */,
+				45F8A5D920810B05000DB258 /* Mp3ID3TaggerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -548,7 +554,7 @@
 				458EC1B620854EEE0000B915 /* BasicSongFields.swift in Sources */,
 				458EC1B820854EEE0000B915 /* GenreFields.swift in Sources */,
 				458EC1BB20854F3D0000B915 /* Form.swift in Sources */,
-				45F8A5DA20810B05000DB258 /* Mp3ID3TagViewModel.swift in Sources */,
+				45F8A5DA20810B05000DB258 /* Mp3ID3TaggerViewModel.swift in Sources */,
 				458EC1AD20854E940000B915 /* ID3TagWriter.swift in Sources */,
 				45F8A5D420810A25000DB258 /* BidirectionalBinding.swift in Sources */,
 				45F8A5D620810A7A000DB258 /* NSPopUpMenu+Rx.swift in Sources */,
@@ -574,6 +580,8 @@
 				450A1FEC2088F8E300CC3E04 /* ID3TagReaderTest.swift in Sources */,
 				C50677EC1C29C839D18A0925 /* StringToID3ImageExtensionAdapterTest.swift in Sources */,
 				45B4FFDC208388F600ABEDC2 /* PathLoader.swift in Sources */,
+				450A1FF32089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift in Sources */,
+				450A1FF020893E0F00CC3E04 /* ID3TagWriterTest.swift in Sources */,
 				45B4FFDD20838BDC00ABEDC2 /* AttachedPictureFieldTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
