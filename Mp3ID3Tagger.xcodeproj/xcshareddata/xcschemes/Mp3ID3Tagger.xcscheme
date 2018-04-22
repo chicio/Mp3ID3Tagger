@@ -48,6 +48,16 @@
                ReferencedContainer = "container:Mp3ID3Tagger.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "450A1FF72089D6B300CC3E04"
+               BuildableName = "Mp3ID3TaggerUITests.xctest"
+               BlueprintName = "Mp3ID3TaggerUITests"
+               ReferencedContainer = "container:Mp3ID3Tagger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

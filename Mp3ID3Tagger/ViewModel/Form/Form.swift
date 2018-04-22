@@ -55,44 +55,45 @@ class Form {
         fillGenreFieldsUsing(id3Tag: id3Tag)
         fillAttachedPictureUsing(id3Tag: id3Tag)
     }
-
+    
     private func fillBasicFieldsUsing(id3Tag: ID3Tag?) {
         basicSongFields.title.value = id3Tag?.title
         basicSongFields.artist.value = id3Tag?.artist
         basicSongFields.album.value = id3Tag?.album
         basicSongFields.year.value = id3Tag?.year
     }
-
+    
     private func fillVersionFieldUsing(id3Tag: ID3Tag?) {
         if let version = id3Tag?.properties.version.rawValue {
             versionField.version.value = Int(version)
         }
     }
-
+    
     private func fillTrackPositionFieldsUsing(id3Tag: ID3Tag?) {
         if let trackPosition = id3Tag?.trackPosition {
             trackPositionInSetFields.trackPosition.value = String(trackPosition.position)
             fillTotalTracksFieldUsing(id3Tag: id3Tag)
         }
     }
-
+    
     private func fillTotalTracksFieldUsing(id3Tag: ID3Tag?) {
         if let totalTracks = id3Tag?.trackPosition?.totalTracks {
             trackPositionInSetFields.totalTracks.value = String(totalTracks)
         }
     }
-
+    
     private func fillGenreFieldsUsing(id3Tag: ID3Tag?) {
         if let genre = id3Tag?.genre {
             genreFields.genreIdentifier.value = genre.identifier?.rawValue
             genreFields.genreDescription.value = genre.description
         }
     }
-
+    
     private func fillAttachedPictureUsing(id3Tag: ID3Tag?) {
-        if let validAttachedPictures = id3Tag?.attachedPictures {
+        if let validAttachedPictures = id3Tag?.attachedPictures,
+            validAttachedPictures.count > 0 {
             attachedPictureField.attachedPicture.onNext(
-                    (data: validAttachedPictures[0].art, format: validAttachedPictures[0].format)
+                (data: validAttachedPictures[0].art, format: validAttachedPictures[0].format)
             )
         }
     }

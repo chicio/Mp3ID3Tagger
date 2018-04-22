@@ -10,10 +10,12 @@
 		450A1FEC2088F8E300CC3E04 /* ID3TagReaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A1FEB2088F8E300CC3E04 /* ID3TagReaderTest.swift */; };
 		450A1FEE20893C0700CC3E04 /* example.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 450A1FED20893C0700CC3E04 /* example.mp3 */; };
 		450A1FF020893E0F00CC3E04 /* ID3TagWriterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A1FEF20893E0F00CC3E04 /* ID3TagWriterTest.swift */; };
-		450A1FF32089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450A1FF22089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift */; };
 		45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */; };
 		45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45325CC9206E9CFB0088B3E6 /* Assets.xcassets */; };
 		45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45325CCB206E9CFB0088B3E6 /* Main.storyboard */; };
+		455E3503208B76D8008BD632 /* OnlyNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3502208B76D8008BD632 /* OnlyNumberFormatter.swift */; };
+		455E3506208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3505208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift */; };
+		455E3508208CBF8B008BD632 /* YearFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3507208CBF8B008BD632 /* YearFormatter.swift */; };
 		458EC1AB20854E640000B915 /* ID3TagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EC1AA20854E640000B915 /* ID3TagReader.swift */; };
 		458EC1AD20854E940000B915 /* ID3TagWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EC1AC20854E940000B915 /* ID3TagWriter.swift */; };
 		458EC1B420854EEE0000B915 /* VersionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EC1AF20854EED0000B915 /* VersionField.swift */; };
@@ -62,7 +64,6 @@
 		450A1FEB2088F8E300CC3E04 /* ID3TagReaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagReaderTest.swift; sourceTree = "<group>"; };
 		450A1FED20893C0700CC3E04 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
 		450A1FEF20893E0F00CC3E04 /* ID3TagWriterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagWriterTest.swift; sourceTree = "<group>"; };
-		450A1FF22089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp3ID3TaggerViewModelTest.swift; sourceTree = "<group>"; };
 		45325CC2206E9CFB0088B3E6 /* Mp3ID3Tagger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3ID3Tagger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45325CC9206E9CFB0088B3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +72,9 @@
 		45325CCF206E9CFB0088B3E6 /* Mp3ID3Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mp3ID3Tagger.entitlements; sourceTree = "<group>"; };
 		45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mp3ID3TaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CEB206E9DEB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		455E3502208B76D8008BD632 /* OnlyNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyNumberFormatter.swift; sourceTree = "<group>"; };
+		455E3505208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyNumberOrEmptyFormatter.swift; sourceTree = "<group>"; };
+		455E3507208CBF8B008BD632 /* YearFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearFormatter.swift; sourceTree = "<group>"; };
 		458EC1AA20854E640000B915 /* ID3TagReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagReader.swift; sourceTree = "<group>"; };
 		458EC1AC20854E940000B915 /* ID3TagWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagWriter.swift; sourceTree = "<group>"; };
 		458EC1AF20854EED0000B915 /* VersionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionField.swift; sourceTree = "<group>"; };
@@ -202,6 +206,16 @@
 			path = Mp3ID3TaggerTests;
 			sourceTree = "<group>";
 		};
+		455E3504208CBB40008BD632 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				455E3502208B76D8008BD632 /* OnlyNumberFormatter.swift */,
+				455E3505208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift */,
+				455E3507208CBF8B008BD632 /* YearFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
 		458EC1A920854E310000B915 /* ID3TagEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +260,6 @@
 			children = (
 				458EC1BF208551710000B915 /* Form */,
 				450A1FEA2088F8CA00CC3E04 /* ID3TagEditor */,
-				450A1FF22089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -304,6 +317,7 @@
 		45F8A5D0208109C1000DB258 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				455E3504208CBB40008BD632 /* Formatters */,
 				45F8A5DB20810BB8000DB258 /* BindableView.swift */,
 				45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */,
 				45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */,
@@ -363,7 +377,7 @@
 		45325CBA206E9CFB0088B3E6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Fabrizio Duroni";
 				TargetAttributes = {
@@ -548,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455E3506208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift in Sources */,
 				45BC928A20810FA500F96932 /* NSOpenPanel+Display.swift in Sources */,
 				45F8A5DE20810BF3000DB258 /* Mp3ID3TaggerViewController.swift in Sources */,
 				45F8A5D820810AD1000DB258 /* ViewModel.swift in Sources */,
@@ -565,6 +580,8 @@
 				C50678F6D69C17A962861551 /* ImageWithType.swift in Sources */,
 				458EC1AB20854E640000B915 /* ID3TagReader.swift in Sources */,
 				C506732165A6DDD1211BCCF8 /* StringToID3ImageExtensionAdapter.swift in Sources */,
+				455E3508208CBF8B008BD632 /* YearFormatter.swift in Sources */,
+				455E3503208B76D8008BD632 /* OnlyNumberFormatter.swift in Sources */,
 				458EC1B720854EEE0000B915 /* AttachedPictureField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,7 +597,6 @@
 				450A1FEC2088F8E300CC3E04 /* ID3TagReaderTest.swift in Sources */,
 				C50677EC1C29C839D18A0925 /* StringToID3ImageExtensionAdapterTest.swift in Sources */,
 				45B4FFDC208388F600ABEDC2 /* PathLoader.swift in Sources */,
-				450A1FF32089C16200CC3E04 /* Mp3ID3TaggerViewModelTest.swift in Sources */,
 				450A1FF020893E0F00CC3E04 /* ID3TagWriterTest.swift in Sources */,
 				45B4FFDD20838BDC00ABEDC2 /* AttachedPictureFieldTest.swift in Sources */,
 			);
