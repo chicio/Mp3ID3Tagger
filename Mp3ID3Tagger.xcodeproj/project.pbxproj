@@ -216,6 +216,23 @@
 			path = Formatters;
 			sourceTree = "<group>";
 		};
+		455E3509208CCE9D008BD632 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */,
+				45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		455E350A208CCEB8008BD632 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				C5067105A5F4853B33850623 /* StringToID3ImageExtensionAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		458EC1A920854E310000B915 /* ID3TagEditor */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,12 +334,11 @@
 		45F8A5D0208109C1000DB258 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				455E350A208CCEB8008BD632 /* Adapters */,
+				455E3509208CCE9D008BD632 /* CustomUI */,
 				455E3504208CBB40008BD632 /* Formatters */,
 				45F8A5DB20810BB8000DB258 /* BindableView.swift */,
 				45F8A5DD20810BF3000DB258 /* Mp3ID3TaggerViewController.swift */,
-				45F8A5D520810A7A000DB258 /* NSPopUpMenu+Rx.swift */,
-				45BC928920810FA500F96932 /* NSOpenPanel+Display.swift */,
-				C5067105A5F4853B33850623 /* StringToID3ImageExtensionAdapter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
