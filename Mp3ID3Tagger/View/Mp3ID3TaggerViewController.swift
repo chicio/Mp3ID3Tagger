@@ -12,7 +12,7 @@ import ID3TagEditor
 
 class Mp3ID3TaggerViewController: NSViewController, BindableView {
     private let disposeBag: DisposeBag = DisposeBag()
-    private let pathSubject: PublishSubject<String> = PublishSubject<String>()
+    private let openAction: PublishSubject<String> = PublishSubject<String>()
     private let saveAction: PublishSubject<Void> = PublishSubject<Void>()
     private let stringToID3ImageExtensionAdapter = StringToID3ImageExtensionAdapter()
     var viewModel: Mp3ID3TaggerViewModel!
@@ -26,14 +26,14 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     @IBOutlet weak var genrePopUpMenu: NSPopUpButton!
     @IBOutlet weak var genreDescriptionTextField: NSTextField!
     @IBOutlet weak var imageSelectionButton: NSButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
     }
     
     func bindViewModel() {
-        viewModel = Mp3ID3TaggerViewModel(openAction: pathSubject.asObservable(), saveAction: saveAction.asObservable())
+        viewModel = Mp3ID3TaggerViewModel(openAction: openAction.asObservable(), saveAction: saveAction.asObservable())
         (titleTextField.rx.text <-> viewModel.form.basicSongFields.title).disposed(by: disposeBag)
         (artistTextField.rx.text <-> viewModel.form.basicSongFields.artist).disposed(by: disposeBag)
         (albumTextField.rx.text <-> viewModel.form.basicSongFields.album).disposed(by: disposeBag)
@@ -57,28 +57,10 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             NSOpenPanel.display(in: self.view.window!,
                                 fileTypes: ["png", "jpg", "jpeg"],
                                 title: "Select an Image file",
-                                onComplete: { [unowned self] (openPanel, response) in
-                                    if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                                        if let validUrl = openPanel.url {
-                                            if let image = try? Data(contentsOf: validUrl) {
-                                                let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(
-                                                    format: validUrl.pathExtension
-                                                )
-                                                self.viewModel
-                                                    .form
-                                                    .attachedPictureField
-                                                    .attachedPicture
-                                                    .onNext((data: image, format: imageExtension))
-                                                self.imageSelectionButton.image = NSImage(data: image)
-                                            }
-                                        }
-                                    }
-                                }
-            )
-        })
-        .disposed(by: disposeBag)
+                                onOkResponse: self.openImage)
+        }).disposed(by: disposeBag)
     }
-
+    
     private func bindSaveAction() {
         viewModel.saveResult
             .asObservable()
@@ -91,21 +73,33 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             .disposed(by: disposeBag)
     }
     
-    @IBAction func openDocument(_ sender: Any?) {
+    private func openImage(openPanel: NSOpenPanel) {
+        if let validUrl = openPanel.url, let image = try? Data(contentsOf: validUrl) {
+            let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(format: validUrl.pathExtension)
+            self.viewModel
+                .form
+                .attachedPictureField
+                .attachedPicture
+                .onNext((data: image, format: imageExtension))
+            self.imageSelectionButton.image = NSImage(data: image)
+        }
+    }
+    
+    @IBAction func open(_ sender: Any?) {
         NSOpenPanel.display(in: self.view.window!,
                             fileTypes: ["mp3"],
                             title: "Select an MP3 file",
-                            onComplete: { (openPanel, response) in
-                                if response.rawValue == NSApplication.ModalResponse.OK.rawValue,
-                                   let selectedPath = openPanel.url?.path {
-                                        self.pathSubject.onNext(selectedPath)
-                                }
-                            }
-        )
+                            onOkResponse: self.openMp3)
     }
     
     @IBAction func save(_ sender: Any?) {
         saveAction.onNext(())
+    }
+    
+    private func openMp3(openPanel: NSOpenPanel) {
+        if let selectedPath = openPanel.url?.path {
+            self.openAction.onNext(selectedPath)
+        }
     }
 }
 
