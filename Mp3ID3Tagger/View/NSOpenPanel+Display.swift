@@ -9,7 +9,7 @@ import Foundation
 import Cocoa
 
 extension NSOpenPanel {
-    static func display(in window: NSWindow, fileTypes: [String], title: String, onOkResponse: @escaping (NSOpenPanel) -> Void) {
+    static func display(in window: NSWindow, fileTypes: [String], title: String, onOkResponse: @escaping (URL) -> Void) {
         let openPanel = NSOpenPanel()
         openPanel.canChooseFiles = true
         openPanel.allowsMultipleSelection = false
@@ -18,8 +18,8 @@ extension NSOpenPanel {
         openPanel.title = title
         openPanel.allowedFileTypes = fileTypes
         openPanel.beginSheetModal(for: window) { response in
-            if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                onOkResponse(openPanel)
+            if response.rawValue == NSApplication.ModalResponse.OK.rawValue, let validUrl = openPanel.url {
+                onOkResponse(validUrl)
             }
             openPanel.close()
         }

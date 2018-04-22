@@ -73,9 +73,9 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             .disposed(by: disposeBag)
     }
     
-    private func openImage(openPanel: NSOpenPanel) {
-        if let validUrl = openPanel.url, let image = try? Data(contentsOf: validUrl) {
-            let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(format: validUrl.pathExtension)
+    private func openImage(imageUrl: URL) {
+        if let image = try? Data(contentsOf: imageUrl) {
+            let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(format: imageUrl.pathExtension)
             self.viewModel
                 .form
                 .attachedPictureField
@@ -84,22 +84,15 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             self.imageSelectionButton.image = NSImage(data: image)
         }
     }
-    
+
     @IBAction func open(_ sender: Any?) {
         NSOpenPanel.display(in: self.view.window!,
                             fileTypes: ["mp3"],
                             title: "Select an MP3 file",
-                            onOkResponse: self.openMp3)
+                            onOkResponse: { self.openAction.onNext($0.path) })
     }
     
     @IBAction func save(_ sender: Any?) {
         saveAction.onNext(())
     }
-    
-    private func openMp3(openPanel: NSOpenPanel) {
-        if let selectedPath = openPanel.url?.path {
-            self.openAction.onNext(selectedPath)
-        }
-    }
 }
-
