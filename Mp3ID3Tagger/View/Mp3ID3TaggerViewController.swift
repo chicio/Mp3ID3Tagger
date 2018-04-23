@@ -68,7 +68,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
                 let alert = NSAlert()
                 alert.addButton(withTitle: "Ok")
                 alert.messageText = result ? "Mp3 saved correctly!" : "Error during save!"
-                alert.runModal()
+                alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
             })
             .disposed(by: disposeBag)
     }
