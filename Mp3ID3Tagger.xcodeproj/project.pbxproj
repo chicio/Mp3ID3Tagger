@@ -13,9 +13,9 @@
 		45325CC6206E9CFB0088B3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45325CC5206E9CFB0088B3E6 /* AppDelegate.swift */; };
 		45325CCA206E9CFB0088B3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45325CC9206E9CFB0088B3E6 /* Assets.xcassets */; };
 		45325CCD206E9CFB0088B3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45325CCB206E9CFB0088B3E6 /* Main.storyboard */; };
-		455E3503208B76D8008BD632 /* OnlyNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3502208B76D8008BD632 /* OnlyNumberFormatter.swift */; };
+		455E3503208B76D8008BD632 /* EmptyStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3502208B76D8008BD632 /* EmptyStringFormatter.swift */; };
 		455E3506208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3505208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift */; };
-		455E3508208CBF8B008BD632 /* YearFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3507208CBF8B008BD632 /* YearFormatter.swift */; };
+		455E3508208CBF8B008BD632 /* YearFormatterOrEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E3507208CBF8B008BD632 /* YearFormatterOrEmpty.swift */; };
 		458EC1AB20854E640000B915 /* ID3TagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EC1AA20854E640000B915 /* ID3TagReader.swift */; };
 		458EC1AD20854E940000B915 /* ID3TagWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EC1AC20854E940000B915 /* ID3TagWriter.swift */; };
 		458EC1B420854EEE0000B915 /* VersionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458EC1AF20854EED0000B915 /* VersionField.swift */; };
@@ -72,9 +72,9 @@
 		45325CCF206E9CFB0088B3E6 /* Mp3ID3Tagger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mp3ID3Tagger.entitlements; sourceTree = "<group>"; };
 		45325CE7206E9DEB0088B3E6 /* Mp3ID3TaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mp3ID3TaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45325CEB206E9DEB0088B3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		455E3502208B76D8008BD632 /* OnlyNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyNumberFormatter.swift; sourceTree = "<group>"; };
+		455E3502208B76D8008BD632 /* EmptyStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStringFormatter.swift; sourceTree = "<group>"; };
 		455E3505208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyNumberOrEmptyFormatter.swift; sourceTree = "<group>"; };
-		455E3507208CBF8B008BD632 /* YearFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearFormatter.swift; sourceTree = "<group>"; };
+		455E3507208CBF8B008BD632 /* YearFormatterOrEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearFormatterOrEmpty.swift; sourceTree = "<group>"; };
 		458EC1AA20854E640000B915 /* ID3TagReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagReader.swift; sourceTree = "<group>"; };
 		458EC1AC20854E940000B915 /* ID3TagWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID3TagWriter.swift; sourceTree = "<group>"; };
 		458EC1AF20854EED0000B915 /* VersionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionField.swift; sourceTree = "<group>"; };
@@ -209,9 +209,9 @@
 		455E3504208CBB40008BD632 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				455E3502208B76D8008BD632 /* OnlyNumberFormatter.swift */,
+				455E3502208B76D8008BD632 /* EmptyStringFormatter.swift */,
 				455E3505208CBB69008BD632 /* OnlyNumberOrEmptyFormatter.swift */,
-				455E3507208CBF8B008BD632 /* YearFormatter.swift */,
+				455E3507208CBF8B008BD632 /* YearFormatterOrEmpty.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -596,8 +596,8 @@
 				C50678F6D69C17A962861551 /* ImageWithType.swift in Sources */,
 				458EC1AB20854E640000B915 /* ID3TagReader.swift in Sources */,
 				C506732165A6DDD1211BCCF8 /* StringToID3ImageExtensionAdapter.swift in Sources */,
-				455E3508208CBF8B008BD632 /* YearFormatter.swift in Sources */,
-				455E3503208B76D8008BD632 /* OnlyNumberFormatter.swift in Sources */,
+				455E3508208CBF8B008BD632 /* YearFormatterOrEmpty.swift in Sources */,
+				455E3503208B76D8008BD632 /* EmptyStringFormatter.swift in Sources */,
 				458EC1B720854EEE0000B915 /* AttachedPictureField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

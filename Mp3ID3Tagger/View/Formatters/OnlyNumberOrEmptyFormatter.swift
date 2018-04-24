@@ -7,11 +7,11 @@
 
 import Foundation
 
-class OnlyNumberOrEmptyFormatter: OnlyNumberFormatter {
+class OnlyNumberOrEmptyFormatter: EmptyStringFormatter {
     override func isPartialStringValid(_ partialString: String,
                                        newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?,
                                        errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
-        if partialString.count == 0 {
+        if let _ = Int(partialString) {
             return true
         }
         return super.isPartialStringValid(partialString, newEditingString: newString, errorDescription: error)

@@ -7,3 +7,4 @@
 ![Mp3ID3Tagger: A macOS application to edit the ID3 tag of your mp3 files](https://raw.githubusercontent.com/chicio/Mp3ID3Tagger/master/Assets/Icon-logo-background.png?cc 
 "A macOS application to edit the ID3 tag of your mp3 files")
 
+A macOS application to edit the ID3 tag of your mp3 files. Supported ID3 tag version: 2.2. and 2.3
