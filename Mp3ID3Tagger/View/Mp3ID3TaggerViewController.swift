@@ -17,6 +17,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     private let stringToID3ImageExtensionAdapter = StringToID3ImageExtensionAdapter()
     var viewModel: Mp3ID3TaggerViewModel!
     @IBOutlet weak var versionPopUpbutton: NSPopUpButton!
+    @IBOutlet weak var fileNameLabel: NSTextField!
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var artistTextField: NSTextField!
     @IBOutlet weak var albumTextField: NSTextField!
@@ -89,7 +90,10 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
         NSOpenPanel.display(in: self.view.window!,
                             fileTypes: ["mp3"],
                             title: "Select an MP3 file",
-                            onOkResponse: { self.openAction.onNext($0.path) })
+                            onOkResponse: {
+                                self.openAction.onNext($0.path)
+                                self.fileNameLabel.stringValue = $0.lastPathComponent
+        })
     }
     
     @IBAction func save(_ sender: Any?) {
