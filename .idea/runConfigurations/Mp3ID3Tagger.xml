@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Mp3ID3Tagger" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Mp3ID3Tagger" TARGET_NAME="Mp3ID3Tagger" CONFIG_NAME="Debug" SCHEME_NAME="Mp3ID3Tagger" IS_LOCATION_SIMULATION_ALLOWED="true" RUN_TARGET_PROJECT_NAME="Mp3ID3Tagger" RUN_TARGET_NAME="Mp3ID3Tagger" MAKE_ACTIVE="TRUE">
+    <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+      <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+    </EXTENSION>
+    <method />
+  </configuration>
+</component>
