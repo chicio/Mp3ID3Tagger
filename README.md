@@ -23,9 +23,14 @@ It will let you modify the following information inside the ID3 tag of you mp3 f
 * genre
 * attached picture set as Front cover
 
-## Technical details
+## Details
 
 The application is entirely written in swift. It relays on a swift library I developed to edit ID3 tags of mp3 files: [ID3TagEditor](https://github.com/chicio/ID3TagEditor "ID3 tag editor").
 The application has been built using [RxSwift](https://github.com/ReactiveX/RxSwift "RxSwift") and [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa "RxCocoa") as an experiment to apply the reactive programming paradigm in a real project.
-The architectural pattern used to build the application is the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel "model view viewmodel"). 
+The architectural pattern used to build the application is the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel "model view viewmodel").  
+Below you can find some screenshots of the app: 
+
+
+
+
  
