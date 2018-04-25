@@ -30,7 +30,5 @@ The application has been built using [RxSwift](https://github.com/ReactiveX/RxSw
 The architectural pattern used to build the application is the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel "model view viewmodel").  
 Below you can find some screenshots of the app: 
 
-
-
-
- 
+![Screenshot 1](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/01-open-app.png "Screenshot 1")
+![Screenshot 2](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/02-mp3-loaded.png "Screenshot 2")
