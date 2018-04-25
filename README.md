@@ -31,4 +31,4 @@ The architectural pattern used to build the application is the [Model-View-ViewM
 Below you can find some screenshots of the app: 
 
 ![Screenshot 1](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/01-open-app.png "Screenshot 1")
-![Screenshot 2](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/02-mp3-loaded.png "Screenshot 2")
+![Screenshot 2](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/02-mp3-load.png "Screenshot 2")
