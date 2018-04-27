@@ -8,4 +8,11 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate { }
+class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    @IBAction func showHelp(_ sender: Any?) {
+        if let mySite = URL(string: "https://www.fabrizioduroni.it") {
+            NSWorkspace.shared.open(mySite)
+        }
+    }
+}
