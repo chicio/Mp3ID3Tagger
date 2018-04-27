@@ -27,4 +27,3 @@ class StringToID3ImageExtensionAdapterTest: XCTestCase {
         XCTAssertEqual(adapter.adapt(format: "JPEG"), .Jpeg)
     }
 }
-
