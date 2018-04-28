@@ -1,5 +1,5 @@
 PODS:
-  - ID3TagEditor (1.0.0)
+  - ID3TagEditor (1.1.1)
   - RxBlocking (4.1.2):
     - RxSwift (~> 4.0)
   - RxCocoa (4.1.2):
@@ -9,7 +9,7 @@ PODS:
     - RxSwift (~> 4.0)
 
 DEPENDENCIES:
-  - ID3TagEditor (~> 1.0)
+  - ID3TagEditor (~> 1.1.1)
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -24,12 +24,12 @@ SPEC REPOS:
     - RxTest
 
 SPEC CHECKSUMS:
-  ID3TagEditor: 1395bc408b40fde12f68f7684737db235fdc09dd
+  ID3TagEditor: 83b0084e3142713d90a720caa61731de8787aaec
   RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
 
-PODFILE CHECKSUM: 90dcb1280f75e1848261faea92659ebdea52d192
+PODFILE CHECKSUM: 57ad09c11abdabb04295bf3103c642552f57a2a0
 
 COCOAPODS: 1.5.0

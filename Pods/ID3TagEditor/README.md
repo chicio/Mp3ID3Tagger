@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/chicio/ID3TagEditor/branch/master/graph/badge.svg)](https://codecov.io/gh/chicio/ID3TagEditor)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/chicio/ID3TagEditor/master/LICENSE.md)
 [![Supported platform](https://img.shields.io/badge/platforms-macOS%20%7C%20iOS%20%7C%20tvOS%20%7C%20watchOS-orange.svg)](https://img.shields.io/badge/platforms-macOS%20%7C%20iOS%20%7C%20Apple%20TV%20%7C%20Apple%20Watch-orange.svg)
+[![CocoaPods Version](https://img.shields.io/cocoapods/v/ID3TagEditor.svg)](https://cocoapods.org/pods/ID3TagEditor)
 
 A swift library to read and modify ID3 Tag of any mp3 file. 
 
@@ -22,7 +23,7 @@ folder inside your project (except for the info.plist file).
 
 **Framework**
 
-ID3TagEditor is available also as a framework. You can follow the standard procedure to install a custom cocoa touch framework
+ID3TagEditor is also available as a framework. You can follow the standard procedure to install a custom cocoa touch framework
 (simply drag the ID3TagEditor.xcodeproj inside your project and add it to the Embedded Binaries/Linked Frameworks and Libraries section of your
 project. See the demo project for a complete example of the setup of the framework.
 
@@ -104,6 +105,8 @@ The ID3 supported properties are:
 * `attachedPictures`, as an array of `AttachedPicture` objects containing the `Data` of an image, the `ID3PictureType` and the `ID3PictureFormat`
 
 Only the `version` field is mandatory. The other fields are optional.
+The field `artist`, `title` and `album` are encoded/saved using Unicode 16 bit string (as requested by specification). 
+The library is also able to read text frame wrongly encoded with Unicode (for example year must always be a ISO88591 string). 
 
 ***
 

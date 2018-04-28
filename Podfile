@@ -3,7 +3,7 @@ use_frameworks!
 def commonPods
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
-    pod 'ID3TagEditor', '~> 1.0'
+    pod 'ID3TagEditor', '~> 1.1.1'
 end
 
 target 'Mp3ID3Tagger' do
