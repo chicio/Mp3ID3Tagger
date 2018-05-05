@@ -42,11 +42,7 @@ class AttachedPictureFieldTest: XCTestCase {
         ]
 
         XCTAssertNil(results[0])
-        XCTAssertEqual(results[1]?[0].art, expectedAttachedPictures[0].art)
-        XCTAssertEqual(results[1]?[0].format, expectedAttachedPictures[0].format)
-        XCTAssertEqual(results[1]?[0].type, expectedAttachedPictures[0].type)
-        XCTAssertEqual(results[2]?[0].art, expectedAttachedPictures[1].art)
-        XCTAssertEqual(results[2]?[0].format, expectedAttachedPictures[1].format)
-        XCTAssertEqual(results[2]?[0].type, expectedAttachedPictures[1].type)
+        XCTAssertEqual(results[1]?[0], expectedAttachedPictures[0])
+        XCTAssertEqual(results[2]?[0], expectedAttachedPictures[1])
     }
 }

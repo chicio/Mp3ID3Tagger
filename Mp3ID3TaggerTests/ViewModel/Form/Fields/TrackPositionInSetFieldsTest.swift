@@ -40,11 +40,8 @@ class TrackPositionInSetFieldsTests: XCTestCase {
         ]
         
         XCTAssertNil(result[0])
-        XCTAssertEqual(result[1]?.position, expectedTrackPosition[1]?.position)
-        XCTAssertEqual(result[1]?.totalTracks, expectedTrackPosition[1]?.totalTracks)
-        XCTAssertEqual(result[2]?.position, expectedTrackPosition[2]?.position)
-        XCTAssertEqual(result[2]?.totalTracks, expectedTrackPosition[2]?.totalTracks)
-        XCTAssertEqual(result[3]?.position, expectedTrackPosition[3]?.position)
-        XCTAssertEqual(result[3]?.totalTracks, expectedTrackPosition[3]?.totalTracks)
+        XCTAssertEqual(result[1], expectedTrackPosition[1])
+        XCTAssertEqual(result[2], expectedTrackPosition[2])
+        XCTAssertEqual(result[3], expectedTrackPosition[3])
     }
 }

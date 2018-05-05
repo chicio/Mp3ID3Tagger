@@ -21,6 +21,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var artistTextField: NSTextField!
     @IBOutlet weak var albumTextField: NSTextField!
+    @IBOutlet weak var albumArtistField: NSTextField!
     @IBOutlet weak var yearTextField: NSTextField!
     @IBOutlet weak var trackPositionTextField: NSTextField!
     @IBOutlet weak var totalTracksTextField: NSTextField!
@@ -38,6 +39,7 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
         (titleTextField.rx.text <-> viewModel.form.basicSongFields.title).disposed(by: disposeBag)
         (artistTextField.rx.text <-> viewModel.form.basicSongFields.artist).disposed(by: disposeBag)
         (albumTextField.rx.text <-> viewModel.form.basicSongFields.album).disposed(by: disposeBag)
+        (albumArtistField.rx.text <-> viewModel.form.basicSongFields.albumArtist).disposed(by: disposeBag)
         (yearTextField.rx.text <-> viewModel.form.basicSongFields.year).disposed(by: disposeBag)
         (versionPopUpbutton.rx.selectedItemTag <-> viewModel.form.versionField.version).disposed(by: disposeBag)
         (trackPositionTextField.rx.text <-> viewModel.form.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)

@@ -26,21 +26,19 @@ class Form {
     
     func readFields() -> Observable<ID3Tag> {
         return Observable.combineLatest(
-            basicSongFields.title.asObservable(),
-            basicSongFields.artist.asObservable(),
-            basicSongFields.album.asObservable(),
-            basicSongFields.year.asObservable(),
             versionField.validVersion,
+            basicSongFields.observe(),
             trackPositionInSetFields.trackPositionInSet,
             genreFields.genre,
             attachedPictureField.observeAttachPictureCreation()
-        ) { (title, artist, album, year, version, trackPositionInSet, genre, image) -> ID3Tag in
+        ) { (version, basicFields, trackPositionInSet, genre, image) -> ID3Tag in
             return ID3Tag(
                 version: version,
-                artist: artist,
-                album: album,
-                title: title,
-                year: year,
+                artist: basicFields.artist,
+                albumArtist: basicFields.albumArtist,
+                album: basicFields.album,
+                title: basicFields.title,
+                year: basicFields.year,
                 genre: genre,
                 attachedPictures: image,
                 trackPosition: trackPositionInSet
@@ -60,6 +58,7 @@ class Form {
         basicSongFields.title.value = id3Tag?.title
         basicSongFields.artist.value = id3Tag?.artist
         basicSongFields.album.value = id3Tag?.album
+        basicSongFields.albumArtist.value = id3Tag?.albumArtist
         basicSongFields.year.value = id3Tag?.year
     }
     

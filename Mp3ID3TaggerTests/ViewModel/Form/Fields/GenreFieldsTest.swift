@@ -39,9 +39,7 @@ class GenreFieldsTest: XCTestCase {
         ]
         
         XCTAssertNil(result[0])
-        XCTAssertEqual(result[1]?.identifier, expectedTrackPosition[1]?.identifier)
-        XCTAssertEqual(result[1]?.description, expectedTrackPosition[1]?.description)
-        XCTAssertEqual(result[2]?.identifier, expectedTrackPosition[2]?.identifier)
-        XCTAssertEqual(result[2]?.description, expectedTrackPosition[2]?.description)
+        XCTAssertEqual(result[1], expectedTrackPosition[1])
+        XCTAssertEqual(result[2], expectedTrackPosition[2])
     }
 }

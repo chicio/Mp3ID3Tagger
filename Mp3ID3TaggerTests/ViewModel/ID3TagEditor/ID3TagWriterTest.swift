@@ -20,6 +20,7 @@ class ID3TagWriterTest: XCTestCase {
         let id3Tag = ID3Tag(
                 version: .version3,
                 artist: "::an artist::",
+                albumArtist: "::an album artist::",
                 album: "::an album::",
                 title: "::a title::",
                 year: nil,
@@ -47,6 +48,7 @@ class ID3TagWriterTest: XCTestCase {
         let id3Tag = ID3Tag(
                 version: .version3,
                 artist: nil,
+                albumArtist: nil,
                 album: nil,
                 title: nil,
                 year: nil,
@@ -73,6 +75,7 @@ class ID3TagWriterTest: XCTestCase {
         let id3Tag = ID3Tag(
             version: .version3,
             artist: "::an artist::",
+            albumArtist: "::an album artist::",
             album: "::an album::",
             title: "::a title::",
             year: nil,

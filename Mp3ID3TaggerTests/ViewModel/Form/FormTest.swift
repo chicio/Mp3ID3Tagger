@@ -22,6 +22,7 @@ class FormTest: XCTestCase {
         let mockTitleObservable = testScheduler.createHotObservable([Recorded.next(4, "::a title::")])
         let mockArtistObservable = testScheduler.createHotObservable([Recorded.next(5, "::an artist::")])
         let mockAlbumObservable = testScheduler.createHotObservable([Recorded.next(10, "::an album::")])
+        let mockAlbumArtistObservable = testScheduler.createHotObservable([Recorded.next(12, "::an album artist::")])
         let mockYearObservable = testScheduler.createHotObservable([Recorded.next(15, "::an year::")])
         let mockTrackPositionObservable = testScheduler.createHotObservable([Recorded.next(20, "1")])
         let mockTotalTracksObservable = testScheduler.createHotObservable([Recorded.next(20, "10")])
@@ -38,6 +39,7 @@ class FormTest: XCTestCase {
             mockTitleObservable.bind(to: form.basicSongFields.title).disposed(by: disposeBag)
             mockArtistObservable.bind(to: form.basicSongFields.artist).disposed(by: disposeBag)
             mockAlbumObservable.bind(to: form.basicSongFields.album).disposed(by: disposeBag)
+            mockAlbumArtistObservable.bind(to: form.basicSongFields.albumArtist).disposed(by: disposeBag)
             mockYearObservable.bind(to: form.basicSongFields.year).disposed(by: disposeBag)
             mockVersionObservable.bind(to: form.versionField.version).disposed(by: disposeBag)
             mockTrackPositionObservable.bind(to: form.trackPositionInSetFields.trackPosition).disposed(by: disposeBag)
@@ -54,6 +56,7 @@ class FormTest: XCTestCase {
         let expectedResult: [ID3Tag] = [
             ID3Tag(version: .version3,
                    artist: "::an artist::",
+                   albumArtist: "::an album artist::",
                    album: "::an album::",
                    title: "::a title::",
                    year: "::an year::",
@@ -62,18 +65,19 @@ class FormTest: XCTestCase {
                    trackPosition: TrackPositionInSet(position: 1, totalTracks: 10))
         ]
 
-        XCTAssertEqual(result[10].title, expectedResult[0].title)
-        XCTAssertEqual(result[10].artist, expectedResult[0].artist)
-        XCTAssertEqual(result[10].album, expectedResult[0].album)
-        XCTAssertEqual(result[10].year, expectedResult[0].year)
-        XCTAssertEqual(result[10].properties.version, expectedResult[0].properties.version)
-        XCTAssertEqual(result[10].trackPosition?.position, expectedResult[0].trackPosition?.position)
-        XCTAssertEqual(result[10].trackPosition?.totalTracks, expectedResult[0].trackPosition?.totalTracks)
-        XCTAssertEqual(result[10].genre?.identifier, expectedResult[0].genre?.identifier)
-        XCTAssertEqual(result[10].genre?.description, expectedResult[0].genre?.description)
-        XCTAssertEqual(result[10].attachedPictures?[0].type, expectedResult[0].attachedPictures?[0].type)
-        XCTAssertEqual(result[10].attachedPictures?[0].format, expectedResult[0].attachedPictures?[0].format)
-        XCTAssertEqual(result[10].attachedPictures?[0].art, expectedResult[0].attachedPictures?[0].art)
+        XCTAssertEqual(result[11].title, expectedResult[0].title)
+        XCTAssertEqual(result[11].artist, expectedResult[0].artist)
+        XCTAssertEqual(result[11].album, expectedResult[0].album)
+        XCTAssertEqual(result[11].albumArtist, expectedResult[0].albumArtist)
+        XCTAssertEqual(result[11].year, expectedResult[0].year)
+        XCTAssertEqual(result[11].properties.version, expectedResult[0].properties.version)
+        XCTAssertEqual(result[11].trackPosition?.position, expectedResult[0].trackPosition?.position)
+        XCTAssertEqual(result[11].trackPosition?.totalTracks, expectedResult[0].trackPosition?.totalTracks)
+        XCTAssertEqual(result[11].genre?.identifier, expectedResult[0].genre?.identifier)
+        XCTAssertEqual(result[11].genre?.description, expectedResult[0].genre?.description)
+        XCTAssertEqual(result[11].attachedPictures?[0].type, expectedResult[0].attachedPictures?[0].type)
+        XCTAssertEqual(result[11].attachedPictures?[0].format, expectedResult[0].attachedPictures?[0].format)
+        XCTAssertEqual(result[11].attachedPictures?[0].art, expectedResult[0].attachedPictures?[0].art)
     }
 
     func testFillFields() {
@@ -82,6 +86,7 @@ class FormTest: XCTestCase {
         let observerVersion = testScheduler.createObserver(Int?.self)
         let observerArtist = testScheduler.createObserver(String?.self)
         let observerAlbum = testScheduler.createObserver(String?.self)
+        let observerAlbumArtist = testScheduler.createObserver(String?.self)
         let observerTitle = testScheduler.createObserver(String?.self)
         let observerYear = testScheduler.createObserver(String?.self)
         let observerGenreIdentifier = testScheduler.createObserver(Int?.self)
@@ -96,6 +101,7 @@ class FormTest: XCTestCase {
             form.versionField.version.asObservable().subscribe(observerVersion).disposed(by: disposeBag)
             form.basicSongFields.artist.asObservable().subscribe(observerArtist).disposed(by: disposeBag)
             form.basicSongFields.album.asObservable().subscribe(observerAlbum).disposed(by: disposeBag)
+            form.basicSongFields.albumArtist.asObservable().subscribe(observerAlbumArtist).disposed(by: disposeBag)
             form.basicSongFields.title.asObservable().subscribe(observerTitle).disposed(by: disposeBag)
             form.basicSongFields.year.asObservable().subscribe(observerYear).disposed(by: disposeBag)
             form.genreFields.genreIdentifier.asObservable().subscribe(observerGenreIdentifier).disposed(by: disposeBag)
@@ -106,6 +112,7 @@ class FormTest: XCTestCase {
             form.fillFields(using: ID3Tag(
                     version: .version3,
                     artist: "::an artist::",
+                    albumArtist: "::an album artist::",
                     album: "::an album::",
                     title: "::a title::",
                     year: "::an year::",
@@ -120,6 +127,7 @@ class FormTest: XCTestCase {
         let version = observerVersion.events.map { $0.value.element! }
         let artist = observerArtist.events.map { $0.value.element! }
         let album = observerAlbum.events.map { $0.value.element! }
+        let albumArtist = observerAlbumArtist.events.map { $0.value.element! }
         let title = observerTitle.events.map { $0.value.element! }
         let year = observerYear.events.map { $0.value.element! }
         let genreIdentifier = observerGenreIdentifier.events.map { $0.value.element! }
@@ -134,6 +142,8 @@ class FormTest: XCTestCase {
         XCTAssertEqual(artist[1], "::an artist::")
         XCTAssertNil(album[0])
         XCTAssertEqual(album[1], "::an album::")
+        XCTAssertNil(albumArtist[0])
+        XCTAssertEqual(albumArtist[1], "::an album artist::")
         XCTAssertNil(title[0])
         XCTAssertEqual(title[1], "::a title::")
         XCTAssertNil(year[0])
