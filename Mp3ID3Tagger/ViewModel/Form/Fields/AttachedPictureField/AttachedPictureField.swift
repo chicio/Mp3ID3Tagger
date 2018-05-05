@@ -10,15 +10,23 @@ import RxSwift
 import ID3TagEditor
 
 class AttachedPictureField {
-    let attachedPicture: PublishSubject<ImageWithType>
+    let attachedPicture: Variable<ImageWithType?>
 
     init() {
-        self.attachedPicture = PublishSubject<ImageWithType>()
+        self.attachedPicture = Variable<ImageWithType?>(nil)
     }
 
-    func observeAttachPictureCreation() -> Observable<AttachedPicture> {
-        return self.attachedPicture.map({ (imageWithType) -> AttachedPicture in
-            return AttachedPicture(art: imageWithType.data, type: .FrontCover, format: imageWithType.format)
-        })
+    func observeAttachPictureCreation() -> Observable<[AttachedPicture]?> {
+        return attachedPicture
+            .asObservable()
+            .map({ imageWithType in
+                if let validImageWithType = imageWithType {
+                    return [AttachedPicture(art: validImageWithType.data,
+                                            type: .FrontCover,
+                                            format: validImageWithType.format)]
+                } else {
+                    return nil
+                }
+            })
     }
 }

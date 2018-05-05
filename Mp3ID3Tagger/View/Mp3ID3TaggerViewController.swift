@@ -53,7 +53,10 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
             .form
             .attachedPictureField
             .attachedPicture
-            .subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0.data) }).disposed(by: disposeBag)
+            .asObservable()
+            .filter({ $0 != nil })
+            .subscribe(onNext: { self.imageSelectionButton.image = NSImage(data: $0!.data) })
+            .disposed(by: disposeBag)
         imageSelectionButton.rx.tap.subscribe(onNext: { tap in
             NSOpenPanel.display(in: self.view.window!,
                                 fileTypes: ["png", "jpg", "jpeg"],
@@ -76,12 +79,8 @@ class Mp3ID3TaggerViewController: NSViewController, BindableView {
     
     private func openImage(imageUrl: URL) {
         if let image = try? Data(contentsOf: imageUrl) {
-            let imageExtension = self.stringToID3ImageExtensionAdapter.adapt(format: imageUrl.pathExtension)
-            self.viewModel
-                .form
-                .attachedPictureField
-                .attachedPicture
-                .onNext((data: image, format: imageExtension))
+            let type = self.stringToID3ImageExtensionAdapter.adapt(format: imageUrl.pathExtension)
+            self.viewModel.form.attachedPictureField.attachedPicture.value = ImageWithType(data: image, format: type)
             self.imageSelectionButton.image = NSImage(data: image)
         }
     }

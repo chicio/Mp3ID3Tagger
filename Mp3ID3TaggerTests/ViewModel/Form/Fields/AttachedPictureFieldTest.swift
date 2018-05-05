@@ -24,7 +24,7 @@ class AttachedPictureFieldTest: XCTestCase {
             next(10, ImageWithType(data: jpeg, format: .Jpeg)),
             next(15, ImageWithType(data: png, format: .Png))
         ])
-        let observer = testScheduler.createObserver(AttachedPicture.self)
+        let observer = testScheduler.createObserver([AttachedPicture]?.self)
 
         let attachedPictureField = AttachedPictureField()
 
@@ -35,17 +35,18 @@ class AttachedPictureFieldTest: XCTestCase {
 
         testScheduler.start()
 
-        let results: [AttachedPicture] = observer.events.map { $0.value.element! }
+        let results: [[AttachedPicture]?] = observer.events.map { $0.value.element! }
         let expectedAttachedPictures: [AttachedPicture] = [
             AttachedPicture(art: jpeg, type: .FrontCover, format: .Jpeg),
             AttachedPicture(art: png, type: .FrontCover, format: .Png)
         ]
 
-        XCTAssertEqual(results[0].art, expectedAttachedPictures[0].art)
-        XCTAssertEqual(results[0].format, expectedAttachedPictures[0].format)
-        XCTAssertEqual(results[0].type, expectedAttachedPictures[0].type)
-        XCTAssertEqual(results[1].art, expectedAttachedPictures[1].art)
-        XCTAssertEqual(results[1].format, expectedAttachedPictures[1].format)
-        XCTAssertEqual(results[1].type, expectedAttachedPictures[1].type)
+        XCTAssertNil(results[0])
+        XCTAssertEqual(results[1]?[0].art, expectedAttachedPictures[0].art)
+        XCTAssertEqual(results[1]?[0].format, expectedAttachedPictures[0].format)
+        XCTAssertEqual(results[1]?[0].type, expectedAttachedPictures[0].type)
+        XCTAssertEqual(results[2]?[0].art, expectedAttachedPictures[1].art)
+        XCTAssertEqual(results[2]?[0].format, expectedAttachedPictures[1].format)
+        XCTAssertEqual(results[2]?[0].type, expectedAttachedPictures[1].type)
     }
 }

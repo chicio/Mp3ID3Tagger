@@ -42,7 +42,7 @@ class Form {
                 title: title,
                 year: year,
                 genre: genre,
-                attachedPictures: [image],
+                attachedPictures: image,
                 trackPosition: trackPositionInSet
             )
         }
@@ -90,11 +90,9 @@ class Form {
     }
     
     private func fillAttachedPictureUsing(id3Tag: ID3Tag?) {
-        if let validAttachedPictures = id3Tag?.attachedPictures,
-            validAttachedPictures.count > 0 {
-            attachedPictureField.attachedPicture.onNext(
-                (data: validAttachedPictures[0].art, format: validAttachedPictures[0].format)
-            )
+        if let validAttachedPictures = id3Tag?.attachedPictures, validAttachedPictures.count > 0 {
+            attachedPictureField.attachedPicture.value = ImageWithType(data: validAttachedPictures[0].art,
+                                                                       format: validAttachedPictures[0].format)
         }
     }
 }
