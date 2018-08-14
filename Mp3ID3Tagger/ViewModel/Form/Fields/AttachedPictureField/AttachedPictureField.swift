@@ -21,7 +21,7 @@ class AttachedPictureField {
             .asObservable()
             .map({ imageWithType in
                 if let validImageWithType = imageWithType {
-                    return [AttachedPicture(art: validImageWithType.data,
+                    return [AttachedPicture(picture: validImageWithType.data,
                                             type: .FrontCover,
                                             format: validImageWithType.format)]
                 } else {

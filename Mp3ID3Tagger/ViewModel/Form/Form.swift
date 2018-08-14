@@ -32,17 +32,18 @@ class Form {
             genreFields.genre,
             attachedPictureField.observeAttachPictureCreation()
         ) { (version, basicFields, trackPositionInSet, genre, image) -> ID3Tag in
-            return ID3Tag(
-                version: version,
-                artist: basicFields.artist,
-                albumArtist: basicFields.albumArtist,
-                album: basicFields.album,
-                title: basicFields.title,
-                year: basicFields.year,
-                genre: genre,
-                attachedPictures: image,
-                trackPosition: trackPositionInSet
-            )
+            return ID3Tag(version: version,
+                          artist: basicFields.artist,
+                          albumArtist: basicFields.albumArtist,
+                          album: basicFields.album,
+                          title: basicFields.title,
+                          recordingDateTime: RecordingDateTime(date: RecordingDate(day: nil,
+                                                                                   month: nil,
+                                                                                   year: basicFields.year),
+                                                               time: nil),
+                          genre: genre,
+                          attachedPictures: image,
+                          trackPosition: trackPositionInSet)
         }
     }
     
@@ -59,7 +60,9 @@ class Form {
         basicSongFields.artist.value = id3Tag?.artist
         basicSongFields.album.value = id3Tag?.album
         basicSongFields.albumArtist.value = id3Tag?.albumArtist
-        basicSongFields.year.value = id3Tag?.year
+        if let year = id3Tag?.recordingDateTime?.date?.year {
+            basicSongFields.year.value = String(year)
+        }
     }
     
     private func fillVersionFieldUsing(id3Tag: ID3Tag?) {
@@ -90,7 +93,7 @@ class Form {
     
     private func fillAttachedPictureUsing(id3Tag: ID3Tag?) {
         if let validAttachedPictures = id3Tag?.attachedPictures, validAttachedPictures.count > 0 {
-            attachedPictureField.attachedPicture.value = ImageWithType(data: validAttachedPictures[0].art,
+            attachedPictureField.attachedPicture.value = ImageWithType(data: validAttachedPictures[0].picture,
                                                                        format: validAttachedPictures[0].format)
         }
     }

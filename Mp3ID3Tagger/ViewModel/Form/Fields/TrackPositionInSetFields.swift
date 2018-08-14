@@ -24,7 +24,7 @@ class TrackPositionInSetFields {
             if let validTrackPositionAsString = trackPosition,
                 let validTrackPosition = Int(validTrackPositionAsString) {
                 return TrackPositionInSet(position: validTrackPosition,
-                                          totalTracks: TrackPositionInSetFields.convertToNumber(totalTracks: totalTracks))
+                                          totalTracks: StringToNumberAdapter.convertToNumber(string: totalTracks))
             }
             return nil
         }

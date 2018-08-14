@@ -7,35 +7,21 @@
 
 import Foundation
 
-class ID3FrameStringContentParsingOperation: FrameContentParsingOperation {
-    private let paddingRemover: PaddingRemover
-    private var assignToTagOperation: (ID3Tag, String) -> ()
-    private let id3FrameConfiguration: ID3FrameConfiguration
+typealias AssignToTagOperation = (ID3Tag, String) -> ()
 
-    init(paddingRemover: PaddingRemover,
-         id3FrameConfiguration: ID3FrameConfiguration,
-         assignToTagOperation: @escaping (ID3Tag, String) -> ()) {
-        self.paddingRemover = paddingRemover
-        self.id3FrameConfiguration = id3FrameConfiguration
+class ID3FrameStringContentParsingOperation: FrameContentParsingOperation {
+    private var stringContentParser: ID3FrameStringContentParser
+    private var assignToTagOperation: AssignToTagOperation
+
+    init(stringContentParser: ID3FrameStringContentParser,
+         assignToTagOperation: @escaping AssignToTagOperation) {
+        self.stringContentParser = stringContentParser
         self.assignToTagOperation = assignToTagOperation
     }
 
     func parse(frame: Data, id3Tag: ID3Tag) {
-        let headerSize = id3FrameConfiguration.headerSizeFor(version: id3Tag.properties.version)
-        let encodingBytePosition = id3FrameConfiguration.encodingPositionFor(version: id3Tag.properties.version)
-        let frameContentRangeStart = headerSize + id3FrameConfiguration.encodingSize()
-        let frameContentRange = Range(frameContentRangeStart..<frame.count)
-        let encoding = getEncodingFor(id3Encoding: ID3StringEncoding(rawValue: frame[encodingBytePosition]))
-        let frameContent = frame.subdata(in: frameContentRange)
-        if let frameContent = String(data: frameContent, encoding: encoding) {
-            assignToTagOperation(id3Tag, paddingRemover.removeFrom(string: frameContent))
+        if let frameContent = stringContentParser.parse(frame: frame, version: id3Tag.properties.version) {
+            assignToTagOperation(id3Tag, frameContent)
         }
-    }
-    
-    private func getEncodingFor(id3Encoding: ID3StringEncoding?) -> String.Encoding {
-        if id3Encoding == .UTF16 {
-            return .utf16
-        }
-        return .isoLatin1
     }
 }

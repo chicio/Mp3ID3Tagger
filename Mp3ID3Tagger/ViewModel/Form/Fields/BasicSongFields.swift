@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-typealias BasicSongFieldsValues = (title: String?, artist: String?, album: String?, albumArtist: String?, year: String?)
+typealias BasicSongFieldsValues = (title: String?, artist: String?, album: String?, albumArtist: String?, year: Int?)
 
 class BasicSongFields {
     let title: Variable<String?>
@@ -37,7 +37,7 @@ class BasicSongFields {
                                          artist: artist,
                                          album: album,
                                          albumArtist: albumArtist,
-                                         year: year)
+                                         year: StringToNumberAdapter.convertToNumber(string: year))
         }
     }
 }
