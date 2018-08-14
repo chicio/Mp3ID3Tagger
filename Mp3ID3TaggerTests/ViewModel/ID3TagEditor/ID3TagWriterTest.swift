@@ -23,7 +23,7 @@ class ID3TagWriterTest: XCTestCase {
                 albumArtist: "::an album artist::",
                 album: "::an album::",
                 title: "::a title::",
-                year: nil,
+                recordingDateTime: nil,
                 genre: nil,
                 attachedPictures: nil,
                 trackPosition: nil
@@ -51,7 +51,7 @@ class ID3TagWriterTest: XCTestCase {
                 albumArtist: nil,
                 album: nil,
                 title: nil,
-                year: nil,
+                recordingDateTime: nil,
                 genre: nil,
                 attachedPictures: nil,
                 trackPosition: nil
@@ -78,7 +78,7 @@ class ID3TagWriterTest: XCTestCase {
             albumArtist: "::an album artist::",
             album: "::an album::",
             title: "::a title::",
-            year: nil,
+            recordingDateTime: nil,
             genre: nil,
             attachedPictures: nil,
             trackPosition: nil

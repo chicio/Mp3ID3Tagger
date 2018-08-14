@@ -23,7 +23,7 @@ class FormTest: XCTestCase {
         let mockArtistObservable = testScheduler.createHotObservable([Recorded.next(5, "::an artist::")])
         let mockAlbumObservable = testScheduler.createHotObservable([Recorded.next(10, "::an album::")])
         let mockAlbumArtistObservable = testScheduler.createHotObservable([Recorded.next(12, "::an album artist::")])
-        let mockYearObservable = testScheduler.createHotObservable([Recorded.next(15, "::an year::")])
+        let mockYearObservable = testScheduler.createHotObservable([Recorded.next(15, "2018")])
         let mockTrackPositionObservable = testScheduler.createHotObservable([Recorded.next(20, "1")])
         let mockTotalTracksObservable = testScheduler.createHotObservable([Recorded.next(20, "10")])
         let mockGenreIdentifierObservable = testScheduler.createHotObservable([Recorded.next(25, 1)])
@@ -59,9 +59,9 @@ class FormTest: XCTestCase {
                    albumArtist: "::an album artist::",
                    album: "::an album::",
                    title: "::a title::",
-                   year: "::an year::",
+                   recordingDateTime: RecordingDateTime(date: RecordingDate(day: nil, month: nil, year: 2018), time: nil),
                    genre: Genre(genre: .ClassicRock, description: "Classic Rock"),
-                   attachedPictures: [AttachedPicture(art: Data(), type: .FrontCover, format: .Jpeg)],
+                   attachedPictures: [AttachedPicture(picture: Data(), type: .FrontCover, format: .Jpeg)],
                    trackPosition: TrackPositionInSet(position: 1, totalTracks: 10))
         ]
 
@@ -69,7 +69,7 @@ class FormTest: XCTestCase {
         XCTAssertEqual(result[11].artist, expectedResult[0].artist)
         XCTAssertEqual(result[11].album, expectedResult[0].album)
         XCTAssertEqual(result[11].albumArtist, expectedResult[0].albumArtist)
-        XCTAssertEqual(result[11].year, expectedResult[0].year)
+        XCTAssertEqual(result[11].recordingDateTime?.date?.year, expectedResult[0].recordingDateTime?.date?.year)
         XCTAssertEqual(result[11].properties.version, expectedResult[0].properties.version)
         XCTAssertEqual(result[11].trackPosition?.position, expectedResult[0].trackPosition?.position)
         XCTAssertEqual(result[11].trackPosition?.totalTracks, expectedResult[0].trackPosition?.totalTracks)
@@ -77,7 +77,7 @@ class FormTest: XCTestCase {
         XCTAssertEqual(result[11].genre?.description, expectedResult[0].genre?.description)
         XCTAssertEqual(result[11].attachedPictures?[0].type, expectedResult[0].attachedPictures?[0].type)
         XCTAssertEqual(result[11].attachedPictures?[0].format, expectedResult[0].attachedPictures?[0].format)
-        XCTAssertEqual(result[11].attachedPictures?[0].art, expectedResult[0].attachedPictures?[0].art)
+        XCTAssertEqual(result[11].attachedPictures?[0].picture, expectedResult[0].attachedPictures?[0].picture)
     }
 
     func testFillFields() {
@@ -115,9 +115,9 @@ class FormTest: XCTestCase {
                     albumArtist: "::an album artist::",
                     album: "::an album::",
                     title: "::a title::",
-                    year: "::an year::",
+                    recordingDateTime: RecordingDateTime(date: RecordingDate(day: nil, month: nil, year: 2018), time: nil),
                     genre: Genre(genre: .ClassicRock, description: "Classic Rock"),
-                    attachedPictures: [AttachedPicture(art: Data(), type: .FrontCover, format: .Jpeg)],
+                    attachedPictures: [AttachedPicture(picture: Data(), type: .FrontCover, format: .Jpeg)],
                     trackPosition: TrackPositionInSet(position: 1, totalTracks: 10)
             ))
         }
@@ -147,7 +147,7 @@ class FormTest: XCTestCase {
         XCTAssertNil(title[0])
         XCTAssertEqual(title[1], "::a title::")
         XCTAssertNil(year[0])
-        XCTAssertEqual(year[1], "::an year::")
+        XCTAssertEqual(year[1], "2018")
         XCTAssertNil(genreIdentifier[0])
         XCTAssertEqual(genreIdentifier[1], 1)
         XCTAssertNil(genreDescription[0])

@@ -37,8 +37,8 @@ class AttachedPictureFieldTest: XCTestCase {
 
         let results: [[AttachedPicture]?] = observer.events.map { $0.value.element! }
         let expectedAttachedPictures: [AttachedPicture] = [
-            AttachedPicture(art: jpeg, type: .FrontCover, format: .Jpeg),
-            AttachedPicture(art: png, type: .FrontCover, format: .Png)
+            AttachedPicture(picture: jpeg, type: .FrontCover, format: .Jpeg),
+            AttachedPicture(picture: png, type: .FrontCover, format: .Png)
         ]
 
         XCTAssertNil(results[0])
