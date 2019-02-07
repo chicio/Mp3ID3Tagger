@@ -1,6 +1,12 @@
 # Change Log
 All changes to Mp3ID3Tagger will be documented in this file.
 
+## [1.2.2](https://github.com/chicio/Mp3ID3Tagger/releases/tag/1.2.2)
+Release date: 2019-02-07.
+
+#### Added
+- Support for v2.4 of the ID3 standard. 
+
 ## [1.2.1](https://github.com/chicio/Mp3ID3Tagger/releases/tag/1.2.1)
 Release date: 2018-08-14.
 

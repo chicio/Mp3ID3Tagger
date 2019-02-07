@@ -17,7 +17,7 @@ class VersionFieldTest: XCTestCase {
     func testVersionFieldSetupWithValidValue() {
         let disposeBag = DisposeBag()
         let testScheduler = TestScheduler(initialClock: 0)
-        let mockVersionObserver = testScheduler.createHotObservable([next(5, 2), next(10, 3)])
+        let mockVersionObserver = testScheduler.createHotObservable([next(5, 2), next(10, 3), next(10, 4)])
         let observer = testScheduler.createObserver(ID3Version.self)
         
         let versionField = VersionField()
@@ -30,10 +30,11 @@ class VersionFieldTest: XCTestCase {
         testScheduler.start()
         
         let result: [ID3Version] = observer.events.map { $0.value.element! }
-        let expectedResult: [ID3Version] = [.version3, .version2, .version3]
+        let expectedResult: [ID3Version] = [.version3, .version2, .version3, .version4]
         
         XCTAssertEqual(result[0], expectedResult[0])
         XCTAssertEqual(result[1], expectedResult[1])
         XCTAssertEqual(result[2], expectedResult[2])
+        XCTAssertEqual(result[3], expectedResult[3])
     }
 }

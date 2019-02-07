@@ -11,7 +11,7 @@ A macOS application to edit the ID3 tag of your mp3 files. You can download the 
 
 ## Description
 
-Mp3ID3Tagger support the following ID3 tag versions: 2.2. and 2.3.
+Mp3ID3Tagger support the following ID3 tag versions: 2.2, 2.3 and 2.4.
 It will let you modify the following information inside the ID3 tag of you mp3 file:
 
 * version of the tag
@@ -32,3 +32,4 @@ Below you can find some screenshots of the app:
 
 ![Screenshot 1](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/01-open-app.png "Screenshot 1")
 ![Screenshot 2](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/02-mp3-load.png "Screenshot 2")
+![Screenshot 2](https://github.com/chicio/Mp3ID3Tagger/raw/master/Assets/03-mp3-load.png "Screenshot 3")
